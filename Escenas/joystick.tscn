@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://rwjabb6vflip"]
+
+[ext_resource type="PackedScene" uid="uid://dmr0fcamx7t56" path="res://addons/virtual_joystick/virtual_joystick_scene.tscn" id="1_pxmd8"]
+
+[node name="Joystick" type="CanvasLayer"]
+
+[node name="Virtual Joystick" parent="." instance=ExtResource("1_pxmd8")]
+offset_left = 1.0
+offset_top = -301.0
+offset_right = 301.0
+offset_bottom = -1.0
+joystick_mode = 0
+action_left = "ui_left"
+action_right = "ui_right"
+action_up = "ui_up"
+action_down = "ui_down"

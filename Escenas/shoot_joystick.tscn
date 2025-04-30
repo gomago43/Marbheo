@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://c4i64bl74bq7g"]
+
+[ext_resource type="Texture2D" uid="uid://de74k4rxgv2lo" path="res://Zombie Apocalypse Tileset/Organized separated sprites/base.png" id="1_160rh"]
+[ext_resource type="Script" path="res://script/ShootJoystick.gd" id="1_juyp1"]
+[ext_resource type="Texture2D" uid="uid://cbynwlynmciav" path="res://Zombie Apocalypse Tileset/stick.png" id="2_4fa86"]
+
+[node name="ShootJoystick" type="CanvasLayer"]
+script = ExtResource("1_juyp1")
+
+[node name="Base" type="TextureRect" parent="."]
+offset_left = 894.0
+offset_top = 415.0
+offset_right = 1539.0
+offset_bottom = 1031.0
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("1_160rh")
+
+[node name="Stick" type="TextureRect" parent="."]
+offset_left = 941.0
+offset_top = 458.0
+offset_right = 1078.0
+offset_bottom = 595.0
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("2_4fa86")

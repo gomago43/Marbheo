@@ -1,0 +1,80 @@
+[gd_scene load_steps=18 format=3 uid="uid://c758h64cnlxrf"]
+
+[ext_resource type="PackedScene" uid="uid://bho5wuuowfy75" path="res://Escenas/world.tscn" id="1_8mwbd"]
+[ext_resource type="Script" path="res://script/Main.gd" id="1_m38sx"]
+[ext_resource type="PackedScene" uid="uid://bneuav6hkebd1" path="res://Escenas/jugador.tscn" id="2_nqdsl"]
+[ext_resource type="PackedScene" uid="uid://cewpmnai3l5fw" path="res://Escenas/spawner.tscn" id="3_v7rv6"]
+[ext_resource type="Script" path="res://script/Bala.gd" id="4_ik2le"]
+[ext_resource type="PackedScene" uid="uid://dsh48ocyxowt7" path="res://Escenas/balas.tscn" id="5_orkhe"]
+[ext_resource type="AudioStream" uid="uid://ukbyg3co88fg" path="res://musica/sonido_bala.mp3" id="6_qu4ik"]
+[ext_resource type="PackedScene" uid="uid://b5ok50ay50ybw" path="res://Escenas/Hud.tscn" id="7_ppw5d"]
+[ext_resource type="PackedScene" uid="uid://c06xos17gjhcq" path="res://Escenas/game_over.tscn" id="8_iybvs"]
+[ext_resource type="AudioStream" uid="uid://ctjyim8f2fjq6" path="res://musica/real-punch-in-the-face-233286.mp3" id="10_h5awr"]
+[ext_resource type="AudioStream" uid="uid://dc3setl18pi01" path="res://musica/PerituneMaterial_Raid_loop.mp3" id="11_x3lhd"]
+[ext_resource type="AudioStream" uid="uid://234a8i8uiwsa" path="res://musica/SONIDO_CAMBIO_DE_HORDA.mp3" id="12_tudtf"]
+[ext_resource type="PackedScene" uid="uid://bl1qjta2466qu" path="res://Escenas/pausa.tscn" id="13_tdurr"]
+[ext_resource type="PackedScene" uid="uid://dm3kqgspcyvw3" path="res://Escenas/zombie.tscn" id="14_r0yvf"]
+[ext_resource type="PackedScene" uid="uid://dtkj6tn6faufn" path="res://Escenas/virtual_joystick.tscn" id="15_y4y7j"]
+[ext_resource type="PackedScene" uid="uid://c4i64bl74bq7g" path="res://Escenas/shoot_joystick.tscn" id="16_66sba"]
+[ext_resource type="PackedScene" uid="uid://rwjabb6vflip" path="res://Escenas/joystick.tscn" id="17_xrrk0"]
+
+[node name="Main" type="Node"]
+process_mode = 3
+script = ExtResource("1_m38sx")
+
+[node name="World" parent="." instance=ExtResource("1_8mwbd")]
+
+[node name="Jugador" parent="." instance=ExtResource("2_nqdsl")]
+process_mode = 1
+position = Vector2(98, 96)
+
+[node name="Bala" type="Node2D" parent="."]
+script = ExtResource("4_ik2le")
+bala_scene = ExtResource("5_orkhe")
+
+[node name="disparo" type="AudioStreamPlayer2D" parent="Bala"]
+stream = ExtResource("6_qu4ik")
+bus = &"sonidos"
+
+[node name="Spawner" parent="." instance=ExtResource("3_v7rv6")]
+process_mode = 1
+
+[node name="HUD" parent="." instance=ExtResource("7_ppw5d")]
+
+[node name="GameOver" parent="." instance=ExtResource("8_iybvs")]
+process_mode = 2
+
+[node name="vida-1" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("10_h5awr")
+volume_db = 24.0
+bus = &"sonidos"
+
+[node name="musica" type="AudioStreamPlayer2D" parent="."]
+process_mode = 3
+stream = ExtResource("11_x3lhd")
+volume_db = -10.0
+bus = &"musica"
+
+[node name="inicio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("12_tudtf")
+bus = &"sonidos"
+
+[node name="Pausa" parent="." instance=ExtResource("13_tdurr")]
+process_mode = 2
+visible = false
+
+[node name="Zombie" parent="." instance=ExtResource("14_r0yvf")]
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="."]
+
+[node name="VirtualJoystick" parent="." instance=ExtResource("15_y4y7j")]
+visible = false
+
+[node name="ShootJoystick" parent="." instance=ExtResource("16_66sba")]
+visible = false
+
+[node name="Joystick" parent="." instance=ExtResource("17_xrrk0")]
+
+[connection signal="shoot" from="Jugador" to="Bala" method="_on_jugador_shoot"]
+[connection signal="hit_z" from="Bala" to="." method="_on_bala_hit_z"]
+[connection signal="hit_p" from="Spawner" to="." method="_on_spawner_hit_p"]

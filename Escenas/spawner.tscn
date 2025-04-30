@@ -1,0 +1,83 @@
+[gd_scene load_steps=2 format=3 uid="uid://cewpmnai3l5fw"]
+
+[ext_resource type="Script" path="res://script/spawner.gd" id="1_1aqbv"]
+
+[node name="Spawner" type="Node2D"]
+script = ExtResource("1_1aqbv")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(520, -50)
+
+[node name="Marker2D24" type="Marker2D" parent="."]
+position = Vector2(580, -52)
+
+[node name="Marker2D5" type="Marker2D" parent="."]
+position = Vector2(507, -136)
+
+[node name="Marker2D6" type="Marker2D" parent="."]
+position = Vector2(517, -86)
+
+[node name="Marker2D7" type="Marker2D" parent="."]
+position = Vector2(588, -151)
+
+[node name="Marker2D8" type="Marker2D" parent="."]
+position = Vector2(565, -107)
+
+[node name="Marker2D2" type="Marker2D" parent="."]
+position = Vector2(1259, 302)
+
+[node name="Marker2D3" type="Marker2D" parent="."]
+position = Vector2(555, 714)
+
+[node name="Marker2D4" type="Marker2D" parent="."]
+position = Vector2(-163, 342)
+
+[node name="Marker2D9" type="Marker2D" parent="."]
+position = Vector2(-221, 354)
+
+[node name="Marker2D10" type="Marker2D" parent="."]
+position = Vector2(-132, 343)
+
+[node name="Marker2D11" type="Marker2D" parent="."]
+position = Vector2(-194, 342)
+
+[node name="Marker2D12" type="Marker2D" parent="."]
+position = Vector2(-185, 379)
+
+[node name="Marker2D13" type="Marker2D" parent="."]
+position = Vector2(-149, 361)
+
+[node name="Marker2D14" type="Marker2D" parent="."]
+position = Vector2(595, 770)
+
+[node name="Marker2D15" type="Marker2D" parent="."]
+position = Vector2(618, 710)
+
+[node name="Marker2D16" type="Marker2D" parent="."]
+position = Vector2(564, 781)
+
+[node name="Marker2D17" type="Marker2D" parent="."]
+position = Vector2(590, 722)
+
+[node name="Marker2D18" type="Marker2D" parent="."]
+position = Vector2(563, 744)
+
+[node name="Marker2D19" type="Marker2D" parent="."]
+position = Vector2(1347, 341)
+
+[node name="Marker2D20" type="Marker2D" parent="."]
+position = Vector2(1302, 306)
+
+[node name="Marker2D21" type="Marker2D" parent="."]
+position = Vector2(1304, 341)
+
+[node name="Marker2D22" type="Marker2D" parent="."]
+position = Vector2(1344, 308)
+
+[node name="Marker2D23" type="Marker2D" parent="."]
+position = Vector2(1259, 346)
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -1,0 +1,109 @@
+[gd_scene load_steps=17 format=3 uid="uid://bneuav6hkebd1"]
+
+[ext_resource type="Texture2D" uid="uid://dm6aw3taju3ch" path="res://Zombie Apocalypse Tileset/Organized separated sprites/Player Character Walking Animation Frames/Zombie-Tileset---_0479_Capa-480.png" id="1_m80uh"]
+[ext_resource type="Script" path="res://script/jugador.gd" id="1_u0ae4"]
+[ext_resource type="Texture2D" uid="uid://cbpii5ewo6crq" path="res://Zombie Apocalypse Tileset/Organized separated sprites/Player Character Walking Animation Frames/Zombie-Tileset---_0476_Capa-477.png" id="2_6yl13"]
+[ext_resource type="Texture2D" uid="uid://dr8pjcut4wr1n" path="res://Zombie Apocalypse Tileset/Organized separated sprites/Player Character Walking Animation Frames/Zombie-Tileset---_0480_Capa-481.png" id="2_fn4hu"]
+[ext_resource type="Texture2D" uid="uid://co8d3ocqujr0h" path="res://Zombie Apocalypse Tileset/Organized separated sprites/Player Character Walking Animation Frames/Zombie-Tileset---_0481_Capa-482.png" id="3_j48tk"]
+[ext_resource type="Texture2D" uid="uid://dajyld4j787xf" path="res://Zombie Apocalypse Tileset/Organized separated sprites/Player Character Walking Animation Frames/Zombie-Tileset---_0477_Capa-478.png" id="3_t63i6"]
+[ext_resource type="Texture2D" uid="uid://dmf73ilctb6ya" path="res://Zombie Apocalypse Tileset/Organized separated sprites/Player Character Walking Animation Frames/Zombie-Tileset---_0478_Capa-479.png" id="4_j728y"]
+[ext_resource type="Texture2D" uid="uid://bur0r6jn5maw2" path="res://Zombie Apocalypse Tileset/Organized separated sprites/Player Character Walking Animation Frames/Zombie-Tileset---_0482_Capa-483.png" id="5_yljxp"]
+[ext_resource type="Texture2D" uid="uid://dh8y6juuibfl2" path="res://Zombie Apocalypse Tileset/Organized separated sprites/Player Character Walking Animation Frames/Zombie-Tileset---_0483_Capa-484.png" id="6_cl07n"]
+[ext_resource type="Texture2D" uid="uid://d1ftjq2ins37q" path="res://Zombie Apocalypse Tileset/Organized separated sprites/Player Character Walking Animation Frames/Zombie-Tileset---_0484_Capa-485.png" id="7_eylji"]
+[ext_resource type="PackedScene" uid="uid://dtkj6tn6faufn" path="res://Escenas/virtual_joystick.tscn" id="12_7ammm"]
+[ext_resource type="AudioStream" uid="uid://bx57q5lmyuyau" path="res://musica/SONIDO_AL_COGER_COCACOLA.mp3" id="12_e6bo6"]
+[ext_resource type="PackedScene" uid="uid://c4i64bl74bq7g" path="res://Escenas/shoot_joystick.tscn" id="13_87vh0"]
+[ext_resource type="PackedScene" uid="uid://rwjabb6vflip" path="res://Escenas/joystick.tscn" id="14_tidje"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kbwum"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_6yl13")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_t63i6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_j728y")
+}],
+"loop": true,
+"name": &"andar0",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_yljxp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_cl07n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_eylji")
+}],
+"loop": true,
+"name": &"andar1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_m80uh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_fn4hu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_j48tk")
+}],
+"loop": true,
+"name": &"andar2",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4kpuq"]
+size = Vector2(19, 30)
+
+[node name="Jugador" type="CharacterBody2D"]
+z_index = 1
+position = Vector2(490, 392)
+collision_layer = 2
+collision_mask = 17
+script = ExtResource("1_u0ae4")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_kbwum")
+animation = &"andar0"
+frame_progress = 0.760458
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_4kpuq")
+
+[node name="Cooldown" type="Timer" parent="."]
+wait_time = 0.5
+
+[node name="Cocacola" type="Timer" parent="."]
+wait_time = 4.0
+one_shot = true
+
+[node name="Pistola" type="Timer" parent="."]
+wait_time = 4.0
+one_shot = true
+
+[node name="objeto" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("12_e6bo6")
+volume_db = -10.0
+bus = &"sonidos"
+
+[node name="VirtualJoystick" parent="." instance=ExtResource("12_7ammm")]
+visible = false
+
+[node name="ShootJoystick" parent="." instance=ExtResource("13_87vh0")]
+visible = false
+
+[node name="Joystick" parent="." instance=ExtResource("14_tidje")]
+
+[connection signal="timeout" from="Cooldown" to="." method="_on_cooldown_timeout"]
+[connection signal="timeout" from="Cocacola" to="." method="_on_cocacola_timeout"]
+[connection signal="timeout" from="Pistola" to="." method="_on_pistola_timeout"]

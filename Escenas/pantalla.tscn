@@ -1,0 +1,42 @@
+[gd_scene load_steps=2 format=3 uid="uid://bb5pccilbwgfl"]
+
+[ext_resource type="Script" path="res://script/pantalla.gd" id="1_ac1kp"]
+
+[node name="Pantalla" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ac1kp")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 27.0
+offset_right = 880.0
+offset_bottom = 77.0
+theme_override_constants/separation = 160
+
+[node name="Label" type="Label" parent="HBoxContainer"]
+custom_minimum_size = Vector2(650, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "dial28"
+
+[node name="OptionButton" type="OptionButton" parent="HBoxContainer"]
+custom_minimum_size = Vector2(250, 50)
+layout_mode = 2
+selected = 0
+allow_reselect = true
+item_count = 4
+popup/item_0/text = "dial21"
+popup/item_1/text = "dial22"
+popup/item_1/id = 1
+popup/item_2/text = "dial23"
+popup/item_2/id = 3
+popup/item_3/text = "dial24"
+popup/item_3/id = 2
+
+[connection signal="item_selected" from="HBoxContainer/OptionButton" to="." method="_on_option_button_item_selected"]

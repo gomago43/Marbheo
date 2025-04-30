@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://iote11fikxxw"]
+
+[ext_resource type="Script" path="res://script/Objeto.gd" id="1_ouceq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bp8mx"]
+size = Vector2(32, 20)
+
+[node name="Objeto" type="Area2D"]
+scale = Vector2(1.75, 1.75)
+collision_layer = 16
+collision_mask = 2
+script = ExtResource("1_ouceq")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_bp8mx")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

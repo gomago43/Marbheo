@@ -1,0 +1,83 @@
+[gd_scene load_steps=11 format=3 uid="uid://dm3kqgspcyvw3"]
+
+[ext_resource type="Script" path="res://script/zombie.gd" id="1_kj4gt"]
+[ext_resource type="Texture2D" uid="uid://cemwh4aeyenc1" path="res://Zombie Apocalypse Tileset/Organized separated sprites/Kid Zombie Animation Frames/Zombie-Tileset---_0430_Capa-431.png" id="2_lsfa4"]
+[ext_resource type="Texture2D" uid="uid://dh5hefof6844k" path="res://Zombie Apocalypse Tileset/Organized separated sprites/Kid Zombie Animation Frames/Zombie-Tileset---_0431_Capa-432.png" id="3_gep37"]
+[ext_resource type="Texture2D" uid="uid://davqwilm6rljj" path="res://Zombie Apocalypse Tileset/Organized separated sprites/Kid Zombie Animation Frames/Zombie-Tileset---_0432_Capa-433.png" id="4_0epil"]
+[ext_resource type="Texture2D" uid="uid://b0y72y1xhfw3q" path="res://Zombie Apocalypse Tileset/Organized separated sprites/Damaged Kid Zombie Animation Frames/Zombie-Tileset---_0439_Capa-440.png" id="5_qaix6"]
+[ext_resource type="Texture2D" uid="uid://bjtp02hdoh5ck" path="res://Zombie Apocalypse Tileset/Organized separated sprites/Damaged Kid Zombie Animation Frames/Zombie-Tileset---_0440_Capa-441.png" id="6_h7ejv"]
+[ext_resource type="Texture2D" uid="uid://csb0vwfuwic0d" path="res://Zombie Apocalypse Tileset/Organized separated sprites/Damaged Kid Zombie Animation Frames/Zombie-Tileset---_0441_Capa-442.png" id="7_7du7o"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_207vg"]
+size = Vector2(10, 9.66667)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_oqer6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_lsfa4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_gep37")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_0epil")
+}],
+"loop": true,
+"name": &"andar",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_0epil")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_qaix6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_h7ejv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_7du7o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_h7ejv")
+}],
+"loop": false,
+"name": &"muerte",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_saypl"]
+size = Vector2(30, 29)
+
+[node name="Zombie" type="CharacterBody2D"]
+process_mode = 1
+scale = Vector2(3, 3)
+collision_layer = 4
+collision_mask = 5
+script = ExtResource("1_kj4gt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -0.166667)
+shape = SubResource("RectangleShape2D_207vg")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_oqer6")
+animation = &"andar"
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 1.2
+autostart = true
+
+[node name="Area2D" type="Area2D" parent="."]
+scale = Vector2(0.333333, 0.333333)
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_saypl")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

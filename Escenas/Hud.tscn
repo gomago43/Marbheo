@@ -1,0 +1,66 @@
+[gd_scene load_steps=4 format=3 uid="uid://b5ok50ay50ybw"]
+
+[ext_resource type="Texture2D" uid="uid://ctdokrojqo86t" path="res://Zombie Apocalypse Tileset/Organized separated sprites/Pickable Items and Weapons/Zombie-Tileset---_0340_Capa-341.png" id="1_nqoj8"]
+[ext_resource type="Texture2D" uid="uid://0scgkm4gdvwh" path="res://Zombie Apocalypse Tileset/Organized separated sprites/Zombie Poster/Zombie-Tileset---_0296_Capa-297.png" id="2_n1l8x"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_08j3s"]
+bg_color = Color(0.85098, 0, 0.0823529, 0.47451)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+
+[node name="HUD" type="CanvasLayer"]
+
+[node name="Panel" type="Panel" parent="."]
+offset_right = 1152.0
+offset_bottom = 28.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_08j3s")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(14, 14.5)
+scale = Vector2(2, 2)
+texture = ExtResource("1_nqoj8")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(1054, 14)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("2_n1l8x")
+
+[node name="Enemigos" type="Label" parent="."]
+offset_left = 1069.0
+offset_top = 2.0
+offset_right = 1109.0
+offset_bottom = 25.0
+text = "X 10
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Orda" type="Label" parent="."]
+offset_left = 6.0
+offset_top = -3.0
+offset_right = 1152.0
+offset_bottom = 29.0
+theme_override_font_sizes/font_size = 20
+text = "dial14"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="nOrda" type="Label" parent="."]
+offset_left = 611.0
+offset_top = -2.0
+offset_right = 651.0
+offset_bottom = 26.0
+theme_override_font_sizes/font_size = 20
+text = ": 1"
+
+[node name="Vidas" type="Label" parent="."]
+offset_left = 25.0
+offset_top = 3.0
+offset_right = 65.0
+offset_bottom = 26.0
+text = "X 1"
+horizontal_alignment = 1
+vertical_alignment = 1

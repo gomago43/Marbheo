@@ -1,0 +1,85 @@
+[gd_scene load_steps=3 format=3 uid="uid://c06xos17gjhcq"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yosl1"]
+bg_color = Color(1, 0, 0, 0.568627)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hxckr"]
+bg_color = Color(1, 0, 0.705882, 0.345098)
+
+[node name="GameOver" type="CanvasLayer"]
+
+[node name="Panel" type="Panel" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -259.5
+offset_top = -158.0
+offset_right = 259.5
+offset_bottom = 158.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_yosl1")
+
+[node name="GameOver" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -163.0
+offset_top = -153.5
+offset_right = 163.0
+offset_bottom = -70.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 60
+text = "Game Over"
+vertical_alignment = 1
+
+[node name="Ordas" type="Label" parent="."]
+offset_left = 480.0
+offset_top = 250.0
+offset_right = 664.0
+offset_bottom = 284.0
+text = "dial15"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Ordas2" type="Label" parent="."]
+offset_left = 556.0
+offset_top = 279.0
+offset_right = 587.0
+offset_bottom = 302.0
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="."]
+offset_left = 482.0
+offset_top = 308.0
+offset_right = 661.0
+offset_bottom = 355.0
+size_flags_vertical = 4
+theme_override_styles/normal = SubResource("StyleBoxFlat_hxckr")
+text = "dial16"
+
+[node name="Button2" type="Button" parent="."]
+offset_left = 482.0
+offset_top = 363.0
+offset_right = 661.0
+offset_bottom = 410.0
+size_flags_vertical = 4
+theme_override_styles/normal = SubResource("StyleBoxFlat_hxckr")
+text = "Menu"
+
+[node name="Button3" type="Button" parent="."]
+offset_left = 482.0
+offset_top = 418.0
+offset_right = 661.0
+offset_bottom = 465.0
+size_flags_vertical = 4
+theme_override_styles/normal = SubResource("StyleBoxFlat_hxckr")
+text = "dial4"

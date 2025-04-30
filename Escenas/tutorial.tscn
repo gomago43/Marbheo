@@ -1,0 +1,132 @@
+[gd_scene load_steps=4 format=3 uid="uid://s83ig6rwigiv"]
+
+[ext_resource type="Script" path="res://script/tutorial.gd" id="1_0ongv"]
+[ext_resource type="Texture2D" uid="uid://c0e38llvbud40" path="res://Zombie Apocalypse Tileset/Captura de pantalla 2025-02-19 204812.png" id="2_vna22"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_5gvy4"]
+font_size = 30
+outline_size = 7
+outline_color = Color(0, 0, 0, 1)
+
+[node name="CanvasLayer" type="CanvasLayer"]
+script = ExtResource("1_0ongv")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(575, 324.25)
+scale = Vector2(2.33535, 1.03577)
+texture = ExtResource("2_vna22")
+
+[node name="Arriba" type="Label" parent="."]
+offset_left = 59.0
+offset_top = 163.0
+offset_right = 544.0
+offset_bottom = 211.0
+text = "dial7"
+label_settings = SubResource("LabelSettings_5gvy4")
+
+[node name="controles" type="Label" parent="."]
+offset_left = 55.0
+offset_top = 351.0
+offset_right = 540.0
+offset_bottom = 399.0
+text = "dial6"
+label_settings = SubResource("LabelSettings_5gvy4")
+
+[node name="Arriba2" type="Label" parent="."]
+offset_left = 160.0
+offset_top = 163.0
+offset_right = 645.0
+offset_bottom = 211.0
+text = "                    W / ⬆"
+label_settings = SubResource("LabelSettings_5gvy4")
+
+[node name="controles2" type="Label" parent="."]
+offset_left = 108.0
+offset_top = 351.0
+offset_right = 593.0
+offset_bottom = 399.0
+text = "dial17"
+label_settings = SubResource("LabelSettings_5gvy4")
+horizontal_alignment = 1
+
+[node name="Abajo" type="Label" parent="."]
+offset_left = 59.0
+offset_top = 196.0
+offset_right = 544.0
+offset_bottom = 244.0
+text = "dial8"
+label_settings = SubResource("LabelSettings_5gvy4")
+
+[node name="Abajo2" type="Label" parent="."]
+offset_left = 160.0
+offset_top = 196.0
+offset_right = 645.0
+offset_bottom = 244.0
+text = "                     S / ⬇  "
+label_settings = SubResource("LabelSettings_5gvy4")
+
+[node name="Izquierda" type="Label" parent="."]
+offset_left = 58.0
+offset_top = 230.0
+offset_right = 543.0
+offset_bottom = 278.0
+text = "dial9"
+label_settings = SubResource("LabelSettings_5gvy4")
+
+[node name="Izquierda2" type="Label" parent="."]
+offset_left = 159.0
+offset_top = 230.0
+offset_right = 644.0
+offset_bottom = 278.0
+text = "                    A / ⬅"
+label_settings = SubResource("LabelSettings_5gvy4")
+
+[node name="Derecha" type="Label" parent="."]
+offset_left = 59.0
+offset_top = 263.0
+offset_right = 544.0
+offset_bottom = 311.0
+text = "dial10"
+label_settings = SubResource("LabelSettings_5gvy4")
+
+[node name="Derecha2" type="Label" parent="."]
+offset_left = 160.0
+offset_top = 263.0
+offset_right = 645.0
+offset_bottom = 311.0
+text = "                    D / ⮕"
+label_settings = SubResource("LabelSettings_5gvy4")
+
+[node name="Apuntar" type="Label" parent="."]
+offset_left = 58.0
+offset_top = 417.0
+offset_right = 646.0
+offset_bottom = 465.0
+text = "dial11"
+label_settings = SubResource("LabelSettings_5gvy4")
+
+[node name="Disparar" type="Label" parent="."]
+offset_left = 56.0
+offset_top = 472.0
+offset_right = 644.0
+offset_bottom = 520.0
+text = "dial12"
+label_settings = SubResource("LabelSettings_5gvy4")
+
+[node name="Objeto" type="Label" parent="."]
+offset_left = 56.0
+offset_top = 532.0
+offset_right = 644.0
+offset_bottom = 580.0
+text = "dial13"
+label_settings = SubResource("LabelSettings_5gvy4")
+
+[node name="Button" type="Button" parent="."]
+offset_left = 867.0
+offset_top = 526.0
+offset_right = 1082.0
+offset_bottom = 582.0
+theme_override_font_sizes/font_size = 26
+text = "dial25"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

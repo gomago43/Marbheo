@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://dsh48ocyxowt7"]
+
+[ext_resource type="Script" path="res://script/balas.gd" id="1_kgu5g"]
+[ext_resource type="Texture2D" uid="uid://do6h382dg3f3b" path="res://Zombie Apocalypse Tileset/Organized separated sprites/bala/bullet-isolated-on-transparent-background-free-png.webp" id="2_1iixx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nwpyn"]
+size = Vector2(24, 4)
+
+[node name="Balas" type="Area2D"]
+collision_layer = 8
+collision_mask = 5
+script = ExtResource("1_kgu5g")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.015, 0.015)
+texture = ExtResource("2_1iixx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(0.75, 0.75)
+shape = SubResource("RectangleShape2D_nwpyn")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
