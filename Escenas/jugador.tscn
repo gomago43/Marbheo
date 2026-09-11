@@ -1,7 +1,7 @@
-[gd_scene load_steps=17 format=3 uid="uid://bneuav6hkebd1"]
+[gd_scene format=3 uid="uid://bneuav6hkebd1"]
 
 [ext_resource type="Texture2D" uid="uid://dm6aw3taju3ch" path="res://Zombie Apocalypse Tileset/Organized separated sprites/Player Character Walking Animation Frames/Zombie-Tileset---_0479_Capa-480.png" id="1_m80uh"]
-[ext_resource type="Script" path="res://script/jugador.gd" id="1_u0ae4"]
+[ext_resource type="Script" uid="uid://g5ptdnsxxoqb" path="res://script/jugador.gd" id="1_u0ae4"]
 [ext_resource type="Texture2D" uid="uid://cbpii5ewo6crq" path="res://Zombie Apocalypse Tileset/Organized separated sprites/Player Character Walking Animation Frames/Zombie-Tileset---_0476_Capa-477.png" id="2_6yl13"]
 [ext_resource type="Texture2D" uid="uid://dr8pjcut4wr1n" path="res://Zombie Apocalypse Tileset/Organized separated sprites/Player Character Walking Animation Frames/Zombie-Tileset---_0480_Capa-481.png" id="2_fn4hu"]
 [ext_resource type="Texture2D" uid="uid://co8d3ocqujr0h" path="res://Zombie Apocalypse Tileset/Organized separated sprites/Player Character Walking Animation Frames/Zombie-Tileset---_0481_Capa-482.png" id="3_j48tk"]
@@ -27,7 +27,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("4_j728y")
 }],
-"loop": true,
+"loop": 1,
 "name": &"andar0",
 "speed": 5.0
 }, {
@@ -41,7 +41,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("7_eylji")
 }],
-"loop": true,
+"loop": 1,
 "name": &"andar1",
 "speed": 5.0
 }, {
@@ -55,7 +55,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("3_j48tk")
 }],
-"loop": true,
+"loop": 1,
 "name": &"andar2",
 "speed": 5.0
 }]
@@ -63,46 +63,58 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4kpuq"]
 size = Vector2(19, 30)
 
-[node name="Jugador" type="CharacterBody2D"]
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_vrk45"]
+particle_flag_disable_z = true
+initial_velocity_min = 10.0
+initial_velocity_max = 30.0
+gravity = Vector3(0, -10, 0)
+
+[node name="Jugador" type="CharacterBody2D" unique_id=1909952634]
 z_index = 1
 position = Vector2(490, 392)
 collision_layer = 2
 collision_mask = 17
 script = ExtResource("1_u0ae4")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2119227019]
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_kbwum")
 animation = &"andar0"
 frame_progress = 0.760458
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2077704777]
 position = Vector2(-0.5, 0)
 shape = SubResource("RectangleShape2D_4kpuq")
 
-[node name="Cooldown" type="Timer" parent="."]
+[node name="Cooldown" type="Timer" parent="." unique_id=1835937095]
 wait_time = 0.5
 
-[node name="Cocacola" type="Timer" parent="."]
+[node name="Cocacola" type="Timer" parent="." unique_id=1383155944]
 wait_time = 4.0
 one_shot = true
 
-[node name="Pistola" type="Timer" parent="."]
+[node name="Pistola" type="Timer" parent="." unique_id=1742748246]
 wait_time = 4.0
 one_shot = true
 
-[node name="objeto" type="AudioStreamPlayer2D" parent="."]
+[node name="objeto" type="AudioStreamPlayer2D" parent="." unique_id=125142063]
 stream = ExtResource("12_e6bo6")
 volume_db = -10.0
 bus = &"sonidos"
 
-[node name="VirtualJoystick" parent="." instance=ExtResource("12_7ammm")]
+[node name="VirtualJoystick" parent="." unique_id=409347460 instance=ExtResource("12_7ammm")]
 visible = false
 
-[node name="ShootJoystick" parent="." instance=ExtResource("13_87vh0")]
+[node name="ShootJoystick" parent="." unique_id=1595310200 instance=ExtResource("13_87vh0")]
 visible = false
 
-[node name="Joystick" parent="." instance=ExtResource("14_tidje")]
+[node name="Joystick" parent="." unique_id=1530939087 instance=ExtResource("14_tidje")]
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=214056129]
+position = Vector2(0, 16)
+emitting = false
+lifetime = 0.34
+process_material = SubResource("ParticleProcessMaterial_vrk45")
 
 [connection signal="timeout" from="Cooldown" to="." method="_on_cooldown_timeout"]
 [connection signal="timeout" from="Cocacola" to="." method="_on_cocacola_timeout"]

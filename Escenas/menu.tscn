@@ -1,6 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://cduwilsw32at2"]
+[gd_scene format=3 uid="uid://cduwilsw32at2"]
 
-[ext_resource type="Script" path="res://script/Menu.gd" id="1_4qk05"]
+[ext_resource type="Script" uid="uid://c48nd46qwb5wu" path="res://script/Menu.gd" id="1_4qk05"]
 [ext_resource type="Texture2D" uid="uid://14g6sf4oi3v2" path="res://Zombie Apocalypse Tileset/foto_menu.jpg" id="2_l2b7d"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_iti25"]
@@ -11,17 +11,17 @@ shadow_size = 0
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_npqma"]
 bg_color = Color(0, 0.360784, 0, 0.466667)
 
-[node name="Menu" type="Node2D"]
+[node name="Menu" type="Node2D" unique_id=907760526]
 process_mode = 3
 script = ExtResource("1_4qk05")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1185046875]
 texture_filter = 1
 position = Vector2(576, 324)
 scale = Vector2(2.91, 2.624)
 texture = ExtResource("2_l2b7d")
 
-[node name="Label" type="Label" parent="."]
+[node name="Label" type="Label" parent="." unique_id=262236465]
 offset_left = -10.0
 offset_top = 8.0
 offset_right = 382.0
@@ -31,50 +31,50 @@ label_settings = SubResource("LabelSettings_iti25")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=702440634]
 offset_left = 50.0
 offset_top = 121.0
 offset_right = 205.0
 offset_bottom = 152.0
 
-[node name="Jugar" type="Button" parent="VBoxContainer"]
+[node name="Jugar" type="Button" parent="VBoxContainer" unique_id=633272904]
 custom_minimum_size = Vector2(0, 31)
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
 theme_override_styles/normal = SubResource("StyleBoxFlat_npqma")
 text = "dial1"
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+[node name="VBoxContainer2" type="VBoxContainer" parent="." unique_id=1993093778]
 offset_left = 50.0
 offset_top = 157.0
 offset_right = 205.0
 offset_bottom = 188.0
 
-[node name="Opciones" type="Button" parent="VBoxContainer2"]
+[node name="Opciones" type="Button" parent="VBoxContainer2" unique_id=372087609]
 layout_mode = 2
 text = "dial2"
 
-[node name="VBoxContainer3" type="VBoxContainer" parent="."]
+[node name="VBoxContainer3" type="VBoxContainer" parent="." unique_id=1526610925]
 offset_left = 50.0
 offset_top = 193.0
 offset_right = 205.0
 offset_bottom = 233.0
 
-[node name="Tutorial" type="Button" parent="VBoxContainer3"]
+[node name="Tutorial" type="Button" parent="VBoxContainer3" unique_id=1202939408]
 layout_mode = 2
 text = "dial3"
 
-[node name="VBoxContainer4" type="VBoxContainer" parent="."]
+[node name="VBoxContainer4" type="VBoxContainer" parent="." unique_id=1797082639]
 offset_left = 50.0
 offset_top = 227.0
 offset_right = 205.0
 offset_bottom = 258.0
 
-[node name="Salir" type="Button" parent="VBoxContainer4"]
+[node name="Salir" type="Button" parent="VBoxContainer4" unique_id=26055978]
 layout_mode = 2
 text = "dial4"
 
-[node name="maxima" type="Label" parent="."]
+[node name="maxima" type="Label" parent="." unique_id=625401662]
 offset_left = 27.0
 offset_top = 609.0
 offset_right = 67.0

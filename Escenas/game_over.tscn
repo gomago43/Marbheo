@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://c06xos17gjhcq"]
+[gd_scene format=3 uid="uid://c06xos17gjhcq"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yosl1"]
 bg_color = Color(1, 0, 0, 0.568627)
@@ -6,9 +6,9 @@ bg_color = Color(1, 0, 0, 0.568627)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hxckr"]
 bg_color = Color(1, 0, 0.705882, 0.345098)
 
-[node name="GameOver" type="CanvasLayer"]
+[node name="GameOver" type="CanvasLayer" unique_id=214441534]
 
-[node name="Panel" type="Panel" parent="."]
+[node name="Panel" type="Panel" parent="." unique_id=1565683129]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -23,7 +23,7 @@ grow_vertical = 2
 size_flags_vertical = 4
 theme_override_styles/panel = SubResource("StyleBoxFlat_yosl1")
 
-[node name="GameOver" type="Label" parent="."]
+[node name="GameOver" type="Label" parent="." unique_id=1965987364]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -39,7 +39,7 @@ theme_override_font_sizes/font_size = 60
 text = "Game Over"
 vertical_alignment = 1
 
-[node name="Ordas" type="Label" parent="."]
+[node name="Ordas" type="Label" parent="." unique_id=700837087]
 offset_left = 480.0
 offset_top = 250.0
 offset_right = 664.0
@@ -48,7 +48,7 @@ text = "dial15"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Ordas2" type="Label" parent="."]
+[node name="Ordas2" type="Label" parent="." unique_id=95100640]
 offset_left = 556.0
 offset_top = 279.0
 offset_right = 587.0
@@ -57,7 +57,7 @@ text = "1"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Button" type="Button" parent="."]
+[node name="Button" type="Button" parent="." unique_id=963525875]
 offset_left = 482.0
 offset_top = 308.0
 offset_right = 661.0
@@ -66,16 +66,16 @@ size_flags_vertical = 4
 theme_override_styles/normal = SubResource("StyleBoxFlat_hxckr")
 text = "dial16"
 
-[node name="Button2" type="Button" parent="."]
+[node name="Button2" type="Button" parent="." unique_id=2107718670]
 offset_left = 482.0
 offset_top = 363.0
 offset_right = 661.0
 offset_bottom = 410.0
 size_flags_vertical = 4
 theme_override_styles/normal = SubResource("StyleBoxFlat_hxckr")
-text = "Menu"
+text = "MENU"
 
-[node name="Button3" type="Button" parent="."]
+[node name="Button3" type="Button" parent="." unique_id=752320171]
 offset_left = 482.0
 offset_top = 418.0
 offset_right = 661.0

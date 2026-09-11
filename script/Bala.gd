@@ -14,6 +14,6 @@ func _on_jugador_shoot(pos, dir):
 	bala.rotation = bala.direction.angle()
 	bala.add_to_group("balas")
 	bala.hit_zombie.connect(hit)
-
+	
 func hit():
 	hit_z.emit()

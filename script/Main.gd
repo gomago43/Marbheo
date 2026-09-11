@@ -54,6 +54,8 @@ func reset():
 	$HUD/nOrda.text = ": " + str(ordas)
 	$HUD/Enemigos.text = "X " + str(max_enemigos)
 	$GameOver.hide()
+	$Mira.show()
+	Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
 
 
 #func _unhandled_input(event: InputEvent) -> void:
@@ -69,7 +71,12 @@ func resume():
 	get_tree().paused = not get_tree().paused
 	$Pausa.visible = get_tree().paused
 	if get_tree().paused:
+		$Mira.hide()
+		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 		get_viewport().set_input_as_handled()
+	else:
+		Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
+		$Mira.show()
 
 
 func _process(_delta):
@@ -121,6 +128,8 @@ func _on_spawner_hit_p():
 		$GameOver/Ordas2.text = str(ordas- 1)
 		$GameOver.show()
 		GAME_OVER = true
+		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+		$Mira.hide()
 
 
 

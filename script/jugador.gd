@@ -65,8 +65,10 @@ func _unhandled_input(event):
 			var mouse_pos = get_global_mouse_position()
 			var dir = mouse_pos - position
 			shoot.emit(position, dir)
+			get_viewport().get_camera_2d().apply_shake(5.0)
 			can_shoot = false
 			$Cooldown.start()
+			
 
 	# Disparo en móvil con touch (fuera del joystick)
 	elif event is InputEventScreenTouch and event.pressed:
@@ -116,11 +118,13 @@ func _physics_process(_delta):
 	
 	$AnimatedSprite2D.animation = "andar" + str(angle)
 	
-	if velocity.length() != 0:
+	if velocity.length() > 0:
 		$AnimatedSprite2D.play()
+		$GPUParticles2D.emitting = true
 	else :
 		$AnimatedSprite2D.stop()
 		$AnimatedSprite2D.frame = 0
+		$GPUParticles2D.emitting = false
 		
 	#if input_dir != Vector2.ZERO:
 		#position += input_dir * speed * _delta

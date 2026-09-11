@@ -1,14 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://bl1qjta2466qu"]
+[gd_scene format=3 uid="uid://bl1qjta2466qu"]
 
 [ext_resource type="PackedScene" uid="uid://bw5kjamerkpq1" path="res://Escenas/volumen.tscn" id="1_ktf06"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e0kme"]
 bg_color = Color(0.854902, 0, 0, 1)
 
-[node name="Pausa" type="CanvasLayer"]
+[node name="Pausa" type="CanvasLayer" unique_id=696519617]
 process_mode = 3
 
-[node name="Panel" type="Panel" parent="."]
+[node name="Panel" type="Panel" parent="." unique_id=1321779766]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -22,38 +22,38 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel" unique_id=616037981]
 layout_mode = 0
 offset_left = 220.0
 offset_top = 39.0
 offset_right = 406.0
 offset_bottom = 176.0
 
-[node name="total_label" type="Label" parent="Panel/VBoxContainer"]
+[node name="total_label" type="Label" parent="Panel/VBoxContainer" unique_id=1242641568]
 layout_mode = 2
 text = "dial18"
 
-[node name="total" parent="Panel/VBoxContainer" instance=ExtResource("1_ktf06")]
+[node name="total" parent="Panel/VBoxContainer" unique_id=680738162 instance=ExtResource("1_ktf06")]
 layout_mode = 2
 nombre = "Master"
 
-[node name="sonidos_label" type="Label" parent="Panel/VBoxContainer"]
+[node name="sonidos_label" type="Label" parent="Panel/VBoxContainer" unique_id=1605578678]
 layout_mode = 2
 text = "dial20"
 
-[node name="sonidos" parent="Panel/VBoxContainer" instance=ExtResource("1_ktf06")]
+[node name="sonidos" parent="Panel/VBoxContainer" unique_id=1144985369 instance=ExtResource("1_ktf06")]
 layout_mode = 2
 nombre = "sonidos"
 
-[node name="musica_label" type="Label" parent="Panel/VBoxContainer"]
+[node name="musica_label" type="Label" parent="Panel/VBoxContainer" unique_id=1425547332]
 layout_mode = 2
 text = "dial19"
 
-[node name="musica" parent="Panel/VBoxContainer" instance=ExtResource("1_ktf06")]
+[node name="musica" parent="Panel/VBoxContainer" unique_id=737053411 instance=ExtResource("1_ktf06")]
 layout_mode = 2
 nombre = "musica"
 
-[node name="Button" type="Button" parent="."]
+[node name="Button" type="Button" parent="." unique_id=1073671927]
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
@@ -63,10 +63,10 @@ offset_right = 448.0
 offset_bottom = -192.0
 grow_vertical = 0
 theme_override_styles/normal = SubResource("StyleBoxFlat_e0kme")
-text = "resume"
+text = "dial29"
 icon_alignment = 1
 
-[node name="Button2" type="Button" parent="."]
+[node name="Button2" type="Button" parent="." unique_id=1640781447]
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
@@ -76,10 +76,10 @@ offset_right = 828.0
 offset_bottom = -192.0
 grow_vertical = 0
 theme_override_styles/normal = SubResource("StyleBoxFlat_e0kme")
-text = "menu"
+text = "MENU"
 icon_alignment = 1
 
-[node name="Button3" type="Button" parent="."]
+[node name="Button3" type="Button" parent="." unique_id=1107981225]
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0

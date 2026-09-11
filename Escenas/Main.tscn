@@ -1,12 +1,13 @@
-[gd_scene load_steps=18 format=3 uid="uid://c758h64cnlxrf"]
+[gd_scene format=3 uid="uid://c758h64cnlxrf"]
 
 [ext_resource type="PackedScene" uid="uid://bho5wuuowfy75" path="res://Escenas/world.tscn" id="1_8mwbd"]
-[ext_resource type="Script" path="res://script/Main.gd" id="1_m38sx"]
+[ext_resource type="Script" uid="uid://j6uy652os0aw" path="res://script/Main.gd" id="1_m38sx"]
 [ext_resource type="PackedScene" uid="uid://bneuav6hkebd1" path="res://Escenas/jugador.tscn" id="2_nqdsl"]
 [ext_resource type="PackedScene" uid="uid://cewpmnai3l5fw" path="res://Escenas/spawner.tscn" id="3_v7rv6"]
-[ext_resource type="Script" path="res://script/Bala.gd" id="4_ik2le"]
+[ext_resource type="Script" uid="uid://6p04f7frkkbl" path="res://script/Bala.gd" id="4_ik2le"]
 [ext_resource type="PackedScene" uid="uid://dsh48ocyxowt7" path="res://Escenas/balas.tscn" id="5_orkhe"]
 [ext_resource type="AudioStream" uid="uid://ukbyg3co88fg" path="res://musica/sonido_bala.mp3" id="6_qu4ik"]
+[ext_resource type="PackedScene" uid="uid://c1ugxnk6r8urn" path="res://Escenas/casquillo.tscn" id="7_mtiip"]
 [ext_resource type="PackedScene" uid="uid://b5ok50ay50ybw" path="res://Escenas/Hud.tscn" id="7_ppw5d"]
 [ext_resource type="PackedScene" uid="uid://c06xos17gjhcq" path="res://Escenas/game_over.tscn" id="8_iybvs"]
 [ext_resource type="AudioStream" uid="uid://ctjyim8f2fjq6" path="res://musica/real-punch-in-the-face-233286.mp3" id="10_h5awr"]
@@ -17,63 +18,78 @@
 [ext_resource type="PackedScene" uid="uid://dtkj6tn6faufn" path="res://Escenas/virtual_joystick.tscn" id="15_y4y7j"]
 [ext_resource type="PackedScene" uid="uid://c4i64bl74bq7g" path="res://Escenas/shoot_joystick.tscn" id="16_66sba"]
 [ext_resource type="PackedScene" uid="uid://rwjabb6vflip" path="res://Escenas/joystick.tscn" id="17_xrrk0"]
+[ext_resource type="Script" uid="uid://ck7xw2li2yid6" path="res://script/camera_2d.gd" id="18_fhaj2"]
+[ext_resource type="Script" uid="uid://bwh88e6quspxk" path="res://script/mira.gd" id="19_1wrdp"]
+[ext_resource type="Texture2D" uid="uid://46bofpafy36n" path="res://Zombie Apocalypse Tileset/punto de mira.png" id="19_dj7fj"]
 
-[node name="Main" type="Node"]
+[node name="Main" type="Node" unique_id=78254103]
 process_mode = 3
 script = ExtResource("1_m38sx")
 
-[node name="World" parent="." instance=ExtResource("1_8mwbd")]
+[node name="World" parent="." unique_id=488512853 instance=ExtResource("1_8mwbd")]
 
-[node name="Jugador" parent="." instance=ExtResource("2_nqdsl")]
+[node name="Jugador" parent="." unique_id=2008163902 instance=ExtResource("2_nqdsl")]
 process_mode = 1
 position = Vector2(98, 96)
 
-[node name="Bala" type="Node2D" parent="."]
+[node name="Bala" type="Node2D" parent="." unique_id=850933822]
 script = ExtResource("4_ik2le")
 bala_scene = ExtResource("5_orkhe")
 
-[node name="disparo" type="AudioStreamPlayer2D" parent="Bala"]
+[node name="disparo" type="AudioStreamPlayer2D" parent="Bala" unique_id=1754308629]
 stream = ExtResource("6_qu4ik")
 bus = &"sonidos"
 
-[node name="Spawner" parent="." instance=ExtResource("3_v7rv6")]
+[node name="casquillo" parent="Bala" unique_id=1236436505 instance=ExtResource("7_mtiip")]
+
+[node name="Spawner" parent="." unique_id=1094195079 instance=ExtResource("3_v7rv6")]
 process_mode = 1
 
-[node name="HUD" parent="." instance=ExtResource("7_ppw5d")]
+[node name="HUD" parent="." unique_id=2051204581 instance=ExtResource("7_ppw5d")]
 
-[node name="GameOver" parent="." instance=ExtResource("8_iybvs")]
+[node name="GameOver" parent="." unique_id=2082219315 instance=ExtResource("8_iybvs")]
 process_mode = 2
 
-[node name="vida-1" type="AudioStreamPlayer2D" parent="."]
+[node name="vida-1" type="AudioStreamPlayer2D" parent="." unique_id=648240926]
 stream = ExtResource("10_h5awr")
 volume_db = 24.0
 bus = &"sonidos"
 
-[node name="musica" type="AudioStreamPlayer2D" parent="."]
+[node name="musica" type="AudioStreamPlayer2D" parent="." unique_id=1567020109]
 process_mode = 3
 stream = ExtResource("11_x3lhd")
 volume_db = -10.0
 bus = &"musica"
 
-[node name="inicio" type="AudioStreamPlayer2D" parent="."]
+[node name="inicio" type="AudioStreamPlayer2D" parent="." unique_id=864258055]
 stream = ExtResource("12_tudtf")
 bus = &"sonidos"
 
-[node name="Pausa" parent="." instance=ExtResource("13_tdurr")]
+[node name="Pausa" parent="." unique_id=1010450789 instance=ExtResource("13_tdurr")]
 process_mode = 2
 visible = false
 
-[node name="Zombie" parent="." instance=ExtResource("14_r0yvf")]
+[node name="Zombie" parent="." unique_id=439956856 instance=ExtResource("14_r0yvf")]
 
-[node name="TouchScreenButton" type="TouchScreenButton" parent="."]
+[node name="TouchScreenButton" type="TouchScreenButton" parent="." unique_id=525090831]
 
-[node name="VirtualJoystick" parent="." instance=ExtResource("15_y4y7j")]
+[node name="VirtualJoystick" parent="." unique_id=1150982527 instance=ExtResource("15_y4y7j")]
 visible = false
 
-[node name="ShootJoystick" parent="." instance=ExtResource("16_66sba")]
+[node name="ShootJoystick" parent="." unique_id=1306795505 instance=ExtResource("16_66sba")]
 visible = false
 
-[node name="Joystick" parent="." instance=ExtResource("17_xrrk0")]
+[node name="Joystick" parent="." unique_id=1585471702 instance=ExtResource("17_xrrk0")]
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=885196931]
+position = Vector2(574, 325)
+limit_enabled = false
+script = ExtResource("18_fhaj2")
+
+[node name="Mira" type="Sprite2D" parent="." unique_id=932985956]
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("19_dj7fj")
+script = ExtResource("19_1wrdp")
 
 [connection signal="shoot" from="Jugador" to="Bala" method="_on_jugador_shoot"]
 [connection signal="hit_z" from="Bala" to="." method="_on_bala_hit_z"]
