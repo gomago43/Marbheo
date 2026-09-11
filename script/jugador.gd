@@ -3,6 +3,8 @@ extends CharacterBody2D
 @onready var move_joystick = $"Joystick/Virtual Joystick"
 @onready var shoot_joystick = $ShootJoystick
 
+@export var casquillo_scene: PackedScene
+
 signal shoot
 
 const START_SPEED : int = 200
@@ -19,11 +21,6 @@ var shoot_direction = Vector2.ZERO
 func _ready():
 	screen_size = get_viewport_rect().size
 	reset()
-	#$VirtualJoystick.joystick_moved.connect(_on_joystick_moved)
-	
-	#shoot_joystick.connect("aim_changed", _on_aim_changed)
-	#shoot_joystick.connect("shoot_held", _on_shoot_held)
-	#shoot_joystick.connect("shoot_released", _on_shoot_released)
 
 func _on_joystick_moved(dir):
 	input_dir = dir
@@ -37,26 +34,6 @@ func reset():
 	speed = START_SPEED
 	$Cooldown.wait_time = START_SHOOT
 	
-#func get_input():
-	#var input_dir = Input.get_vector("left", "right", "up", "down")
-	#velocity = input_dir.normalized() * speed
-
-	#if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and can_shoot:
-		#var dir = get_global_mouse_position() - position
-		#if not $VirtualJoystick.is_point_in_joystick(get_global_mouse_position()):
-			#shoot.emit(position, dir)
-			#can_shoot = false
-			#$Cooldown.start()
-
-#func _unhandled_input(event):
-	#
-	##Disparo PC
-	#if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
-		#if can_shoot and !$"Joystick/Virtual Joystick"._is_point_inside_joystick_area(get_global_mouse_position()):
-			#var dir = get_global_mouse_position() - position
-			#shoot.emit(position, dir)
-			#can_shoot = false
-			#$Cooldown.start()
 	
 func _unhandled_input(event):
 	# Disparo en PC con mouse
@@ -66,39 +43,39 @@ func _unhandled_input(event):
 			var dir = mouse_pos - position
 			shoot.emit(position, dir)
 			get_viewport().get_camera_2d().apply_shake(5.0)
+			
+			# Instanciación del casquillo sin depender del nodo PuntoExpulsion
+			if casquillo_scene != null:
+				var casquillo = casquillo_scene.instantiate() as RigidBody2D
+				
+				# Lo añadimos a la escena principal para que mantenga físicas independientes
+				get_tree().current_scene.add_child(casquillo)
+				
+				# Ángulo hacia el que apunta el jugador/ratón
+				var angulo_disparo = dir.angle()
+				
+				# Posicionamos el casquillo ligeramente desplazado desde el centro del personaje
+				var offset = Vector2(10, 0).rotated(angulo_disparo)
+				casquillo.global_position = global_position + offset
+				casquillo.global_rotation = angulo_disparo
+				
+				# Expulsar hacia la derecha respecto a la dirección del disparo (perpendicular/90 grados)
+				var direccion_expulsion = Vector2.RIGHT.rotated(angulo_disparo + PI / 2)
+				casquillo.apply_central_impulse(direccion_expulsion * randf_range(80.0, 130.0))
+				casquillo.apply_torque_impulse(randf_range(-40.0, 40.0))
+			
 			can_shoot = false
 			$Cooldown.start()
 			
 
-	# Disparo en móvil con touch (fuera del joystick)
-	elif event is InputEventScreenTouch and event.pressed:
-		if can_shoot and not move_joystick.is_touch_on_joystick(event.position):
-			var dir = event.position - position
-			shoot.emit(position, dir)
-			can_shoot = false
-			$Cooldown.start()
-	#if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
-		#var is_from_joystick = $VirtualJoystick.is_touch_on_joystick(-1) or $ShootJoystick.is_touch_on_joystick(-1)
-		#if not is_from_joystick:
-			#var dir = get_global_mouse_position() - position
-			#shoot.emit(position, dir)
-			#can_shoot = false
-			#$Cooldown.start()
-
-	# Disparo en móvil: tocar fuera del joystick
-	#elif (event is InputEventScreenTouch and event.pressed) or event is InputEventScreenDrag:
-		#var is_from_joystick = $VirtualJoystick.is_touch_on_joystick(event.index) or $ShootJoystick.is_touch_on_joystick(event.index)
-		#if not is_from_joystick:
+	## Disparo en móvil con touch (fuera del joystick)
+	#elif event is InputEventScreenTouch and event.pressed:
+		#if can_shoot and not move_joystick.is_touch_on_joystick(event.position):
 			#var dir = event.position - position
 			#shoot.emit(position, dir)
 			#can_shoot = false
 			#$Cooldown.start()
 
-#func get_input():
-	##var input_dir = $VirtualJoystick.input_vector
-	#if input_dir == Vector2.ZERO:
-		#input_dir = Input.get_vector("left", "right", "up", "down")
-	#velocity = input_dir.normalized() * speed
 
 func get_input():
 	var dir := Input.get_vector("left", "right", "up", "down")

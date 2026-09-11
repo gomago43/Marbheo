@@ -31,6 +31,7 @@ script = ExtResource("1_m38sx")
 [node name="Jugador" parent="." unique_id=2008163902 instance=ExtResource("2_nqdsl")]
 process_mode = 1
 position = Vector2(98, 96)
+casquillo_scene = ExtResource("7_mtiip")
 
 [node name="Bala" type="Node2D" parent="." unique_id=850933822]
 script = ExtResource("4_ik2le")
@@ -39,8 +40,6 @@ bala_scene = ExtResource("5_orkhe")
 [node name="disparo" type="AudioStreamPlayer2D" parent="Bala" unique_id=1754308629]
 stream = ExtResource("6_qu4ik")
 bus = &"sonidos"
-
-[node name="casquillo" parent="Bala" unique_id=1236436505 instance=ExtResource("7_mtiip")]
 
 [node name="Spawner" parent="." unique_id=1094195079 instance=ExtResource("3_v7rv6")]
 process_mode = 1
