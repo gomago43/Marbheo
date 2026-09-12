@@ -12,6 +12,8 @@ var HORDA_MAX : int
 var NUEVA_ORDA : bool
 var GAME_OVER : bool
 
+signal damage
+
 
 func _ready():
 	HORDA_MAX = Save.HORDA_MAX
@@ -130,6 +132,8 @@ func _on_spawner_hit_p():
 		GAME_OVER = true
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 		$Mira.hide()
+	else: 
+		damage.emit()
 
 
 

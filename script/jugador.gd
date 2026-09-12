@@ -17,6 +17,7 @@ var can_shoot : bool
 var screen_size : Vector2
 var input_dir = Vector2.ZERO
 var shoot_direction = Vector2.ZERO
+var damaged : bool = false
 
 func _ready():
 	screen_size = get_viewport_rect().size
@@ -44,22 +45,17 @@ func _unhandled_input(event):
 			shoot.emit(position, dir)
 			get_viewport().get_camera_2d().apply_shake(5.0)
 			
-			# Instanciación del casquillo sin depender del nodo PuntoExpulsion
 			if casquillo_scene != null:
 				var casquillo = casquillo_scene.instantiate() as RigidBody2D
 				
-				# Lo añadimos a la escena principal para que mantenga físicas independientes
 				get_tree().current_scene.add_child(casquillo)
 				
-				# Ángulo hacia el que apunta el jugador/ratón
 				var angulo_disparo = dir.angle()
 				
-				# Posicionamos el casquillo ligeramente desplazado desde el centro del personaje
 				var offset = Vector2(10, 0).rotated(angulo_disparo)
 				casquillo.global_position = global_position + offset
 				casquillo.global_rotation = angulo_disparo
 				
-				# Expulsar hacia la derecha respecto a la dirección del disparo (perpendicular/90 grados)
 				var direccion_expulsion = Vector2.RIGHT.rotated(angulo_disparo + PI / 2)
 				casquillo.apply_central_impulse(direccion_expulsion * randf_range(80.0, 130.0))
 				casquillo.apply_torque_impulse(randf_range(-40.0, 40.0))
@@ -93,15 +89,16 @@ func _physics_process(_delta):
 	var angle = snappedf(mouse.angle(), PI/4)/(PI/4)
 	angle = wrapi(int(angle), 0, 3)
 	
-	$AnimatedSprite2D.animation = "andar" + str(angle)
-	
-	if velocity.length() > 0:
-		$AnimatedSprite2D.play()
-		$GPUParticles2D.emitting = true
-	else :
-		$AnimatedSprite2D.stop()
-		$AnimatedSprite2D.frame = 0
-		$GPUParticles2D.emitting = false
+	if not damaged:
+		$AnimatedSprite2D.animation = "andar" + str(angle)
+		
+		if velocity.length() > 0:
+			$AnimatedSprite2D.play()
+			$GPUParticles2D.emitting = true
+		else :
+			$AnimatedSprite2D.stop()
+			$AnimatedSprite2D.frame = 0
+			$GPUParticles2D.emitting = false
 		
 	#if input_dir != Vector2.ZERO:
 		#position += input_dir * speed * _delta
@@ -130,8 +127,13 @@ func _on_cocacola_timeout():
 func _on_pistola_timeout():
 	$Cooldown.wait_time = START_SHOOT
 
-
-#para joystick
+func _on_main_damage() -> void:
+	damaged = true
+	$AnimatedSprite2D.play("daño")
+	
+func _on_animated_sprite_2d_animation_finished() -> void:
+	if $AnimatedSprite2D.animation == "daño":
+		damaged = false
 
 #func _on_aim_changed(dir: Vector2):
 	#shoot_direction = dir

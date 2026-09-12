@@ -90,6 +90,7 @@ scale = Vector2(0.08, 0.08)
 texture = ExtResource("19_dj7fj")
 script = ExtResource("19_1wrdp")
 
+[connection signal="damage" from="." to="Jugador" method="_on_main_damage"]
 [connection signal="shoot" from="Jugador" to="Bala" method="_on_jugador_shoot"]
 [connection signal="hit_z" from="Bala" to="." method="_on_bala_hit_z"]
 [connection signal="hit_p" from="Spawner" to="." method="_on_spawner_hit_p"]
