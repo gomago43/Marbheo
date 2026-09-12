@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://c1ugxnk6r8urn" path="res://Escenas/casquillo.tscn" id="7_mtiip"]
 [ext_resource type="PackedScene" uid="uid://b5ok50ay50ybw" path="res://Escenas/Hud.tscn" id="7_ppw5d"]
 [ext_resource type="PackedScene" uid="uid://c06xos17gjhcq" path="res://Escenas/game_over.tscn" id="8_iybvs"]
-[ext_resource type="AudioStream" uid="uid://ctjyim8f2fjq6" path="res://musica/real-punch-in-the-face-233286.mp3" id="10_h5awr"]
+[ext_resource type="AudioStream" uid="uid://o41r11cyapj" path="res://musica/freesound_community-male_hurt7-48124.mp3" id="11_mtiip"]
 [ext_resource type="AudioStream" uid="uid://dc3setl18pi01" path="res://musica/PerituneMaterial_Raid_loop.mp3" id="11_x3lhd"]
 [ext_resource type="AudioStream" uid="uid://234a8i8uiwsa" path="res://musica/SONIDO_CAMBIO_DE_HORDA.mp3" id="12_tudtf"]
 [ext_resource type="PackedScene" uid="uid://bl1qjta2466qu" path="res://Escenas/pausa.tscn" id="13_tdurr"]
@@ -50,8 +50,8 @@ process_mode = 1
 process_mode = 2
 
 [node name="vida-1" type="AudioStreamPlayer2D" parent="." unique_id=648240926]
-stream = ExtResource("10_h5awr")
-volume_db = 24.0
+stream = ExtResource("11_mtiip")
+volume_db = 20.0
 bus = &"sonidos"
 
 [node name="musica" type="AudioStreamPlayer2D" parent="." unique_id=1567020109]

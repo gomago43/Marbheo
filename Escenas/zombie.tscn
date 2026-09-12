@@ -4,10 +4,11 @@
 [ext_resource type="Texture2D" uid="uid://cemwh4aeyenc1" path="res://Zombie Apocalypse Tileset/Organized separated sprites/Kid Zombie Animation Frames/Zombie-Tileset---_0430_Capa-431.png" id="2_lsfa4"]
 [ext_resource type="Texture2D" uid="uid://dh5hefof6844k" path="res://Zombie Apocalypse Tileset/Organized separated sprites/Kid Zombie Animation Frames/Zombie-Tileset---_0431_Capa-432.png" id="3_gep37"]
 [ext_resource type="Texture2D" uid="uid://davqwilm6rljj" path="res://Zombie Apocalypse Tileset/Organized separated sprites/Kid Zombie Animation Frames/Zombie-Tileset---_0432_Capa-433.png" id="4_0epil"]
+[ext_resource type="Texture2D" uid="uid://dg7d5xvpilkc3" path="res://Zombie Apocalypse Tileset/Organized separated sprites/Damaged Player Animation Frames/Zombie-Tileset---_0487_Capa-488.png" id="5_p5sc7"]
 [ext_resource type="Texture2D" uid="uid://b0y72y1xhfw3q" path="res://Zombie Apocalypse Tileset/Organized separated sprites/Damaged Kid Zombie Animation Frames/Zombie-Tileset---_0439_Capa-440.png" id="5_qaix6"]
-[ext_resource type="Texture2D" uid="uid://bbk4yy8c1qwgt" path="res://Zombie Apocalypse Tileset/Organized separated sprites/Damaged Skinny Zombie Animation Frames/Zombie-Tileset---_0404_Capa-405.png" id="6_cyouf"]
 [ext_resource type="Texture2D" uid="uid://bjtp02hdoh5ck" path="res://Zombie Apocalypse Tileset/Organized separated sprites/Damaged Kid Zombie Animation Frames/Zombie-Tileset---_0440_Capa-441.png" id="6_h7ejv"]
-[ext_resource type="Texture2D" uid="uid://csb0vwfuwic0d" path="res://Zombie Apocalypse Tileset/Organized separated sprites/Damaged Kid Zombie Animation Frames/Zombie-Tileset---_0441_Capa-442.png" id="7_7du7o"]
+[ext_resource type="Texture2D" uid="uid://bggsmrbqcnk0t" path="res://Zombie Apocalypse Tileset/Organized separated sprites/Damaged Skinny Zombie Animation Frames/Zombie-Tileset---_0411_Capa-412.png" id="7_duqcc"]
+[ext_resource type="AudioStream" uid="uid://v4d5ub864qjb" path="res://musica/u_68csiaifb5-bulletimpact3-442719.mp3" id="9_duqcc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_207vg"]
 size = Vector2(10, 9.66667)
@@ -30,19 +31,16 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("5_p5sc7")
+}, {
+"duration": 1.0,
 "texture": ExtResource("4_0epil")
 }, {
 "duration": 1.0,
 "texture": ExtResource("5_qaix6")
 }, {
 "duration": 1.0,
-"texture": ExtResource("6_cyouf")
-}, {
-"duration": 1.0,
-"texture": ExtResource("6_h7ejv")
-}, {
-"duration": 1.0,
-"texture": ExtResource("7_7du7o")
+"texture": ExtResource("7_duqcc")
 }, {
 "duration": 1.0,
 "texture": ExtResource("6_h7ejv")
@@ -69,8 +67,6 @@ shape = SubResource("RectangleShape2D_207vg")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=469544647]
 sprite_frames = SubResource("SpriteFrames_oqer6")
 animation = &"muerte"
-frame = 5
-frame_progress = 1.0
 
 [node name="Timer" type="Timer" parent="." unique_id=159617654]
 wait_time = 1.2
@@ -84,6 +80,9 @@ collision_mask = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=2105639533]
 position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_saypl")
+
+[node name="muerte" type="AudioStreamPlayer2D" parent="." unique_id=1876501009]
+stream = ExtResource("9_duqcc")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

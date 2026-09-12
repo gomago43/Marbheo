@@ -51,6 +51,7 @@ func muerte():
 	$AnimatedSprite2D.play()
 	$Area2D/CollisionShape2D.set_deferred("disabled", true)
 	$CollisionShape2D.set_deferred("disabled", true)
+	$muerte.play()
 	if randf() <= objeto:
 		drop_item()
 
