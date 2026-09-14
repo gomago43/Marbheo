@@ -7,7 +7,6 @@ func _ready():
 	$maxima.text = "Max: " + str(Save.HORDA_MAX)
 	music_player = Musica.music_player
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-	
 	if not music_player.playing:
 			Musica.music_player.play()
 

@@ -86,6 +86,8 @@ func _process(_delta):
 		ordas += 1
 		dificultad *= aumento_dificultad
 		zombie.objeto += 0.01
+		mostrar_texto_horda(ordas, $Horda)
+		#pulso_tiempo_nueva_horda()
 		if ordas % 5 == 0 and aumento_dificultad > 1:
 			aumento_dificultad -= 0.01
 		if $Spawner/Timer.wait_time > 0.25:
@@ -147,3 +149,26 @@ func orda_acabada():
 		return muertos
 	else: 
 		return false
+
+
+func mostrar_texto_horda(numero_horda: int, label_horda: Label):
+	label_horda.text = "HORDA " + str(numero_horda)
+	label_horda.scale = Vector2(2.0, 2.0)
+	label_horda.modulate.a = 0.0
+	label_horda.visible = true
+	
+	var tween = create_tween().set_parallel(true)
+	tween.tween_property(label_horda, "scale", Vector2(1.0, 1.0), 0.4).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+	tween.tween_property(label_horda, "modulate:a", 1.0, 0.3)
+	
+	await get_tree().create_timer(1.5).timeout
+	
+	var tween_out = create_tween()
+	tween_out.tween_property(label_horda, "modulate:a", 0.0, 0.5)
+
+func pulso_tiempo_nueva_horda():
+	Engine.time_scale = 0.2
+	await get_tree().create_timer(0.15, true, false, true).timeout
+	
+	var tween = create_tween()
+	tween.tween_property(Engine, "time_scale", 1.0, 0.3)

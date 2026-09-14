@@ -22,6 +22,8 @@
 [ext_resource type="Script" uid="uid://bwh88e6quspxk" path="res://script/mira.gd" id="19_1wrdp"]
 [ext_resource type="Texture2D" uid="uid://46bofpafy36n" path="res://Zombie Apocalypse Tileset/punto de mira.png" id="19_dj7fj"]
 
+[sub_resource type="LabelSettings" id="LabelSettings_vrk45"]
+
 [node name="Main" type="Node" unique_id=78254103]
 process_mode = 3
 script = ExtResource("1_m38sx")
@@ -89,6 +91,24 @@ script = ExtResource("18_fhaj2")
 scale = Vector2(0.08, 0.08)
 texture = ExtResource("19_dj7fj")
 script = ExtResource("19_1wrdp")
+
+[node name="Horda" type="Label" parent="." unique_id=1491188864]
+visible = false
+modulate = Color(0, 0, 0, 1)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.5
+offset_top = -11.5
+offset_right = 167.5
+offset_bottom = 38.5
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(100, 25)
+text = "dial14: 1"
+label_settings = SubResource("LabelSettings_vrk45")
 
 [connection signal="damage" from="." to="Jugador" method="_on_main_damage"]
 [connection signal="shoot" from="Jugador" to="Bala" method="_on_jugador_shoot"]

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://c1ugxnk6r8urn"]
 
-[ext_resource type="Script" uid="uid://ujb5ikrgim0f" path="res://casquillo.gd" id="1_6j7vn"]
+[ext_resource type="Script" uid="uid://ujb5ikrgim0f" path="res://script/casquillo.gd" id="1_6j7vn"]
 [ext_resource type="Texture2D" uid="uid://bqjructtqy8sg" path="res://Zombie Apocalypse Tileset/casquillo.webp" id="2_01ma1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vrk45"]
