@@ -16,11 +16,19 @@ func _on_timer_timeout():
 	queue_free()
 
 
+#func _on_body_entered(body):
+	#if body.name == "World":
+		#queue_free()
+	#else :
+		#if body.vivo:
+			#body.muerte()
+			#queue_free()
+			#hit_zombie.emit()
+
 func _on_body_entered(body):
-	if body.name == "World":
+	if body is TileMapLayer:
 		queue_free()
-	else :
-		if body.vivo:
-			body.muerte()
-			queue_free()
-			hit_zombie.emit()
+	elif body.has_method("muerte"):
+		body.muerte()
+		queue_free()
+		hit_zombie.emit()

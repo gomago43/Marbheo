@@ -12,7 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://c06xos17gjhcq" path="res://Escenas/game_over.tscn" id="8_iybvs"]
 [ext_resource type="AudioStream" uid="uid://o41r11cyapj" path="res://musica/freesound_community-male_hurt7-48124.mp3" id="11_mtiip"]
 [ext_resource type="AudioStream" uid="uid://dc3setl18pi01" path="res://musica/PerituneMaterial_Raid_loop.mp3" id="11_x3lhd"]
-[ext_resource type="AudioStream" uid="uid://234a8i8uiwsa" path="res://musica/SONIDO_CAMBIO_DE_HORDA.mp3" id="12_tudtf"]
+[ext_resource type="AudioStream" uid="uid://b3ajkb74dihig" path="res://musica/battle_horn_1-6931.mp3" id="12_mtiip"]
 [ext_resource type="PackedScene" uid="uid://bl1qjta2466qu" path="res://Escenas/pausa.tscn" id="13_tdurr"]
 [ext_resource type="PackedScene" uid="uid://dm3kqgspcyvw3" path="res://Escenas/zombie.tscn" id="14_r0yvf"]
 [ext_resource type="PackedScene" uid="uid://dtkj6tn6faufn" path="res://Escenas/virtual_joystick.tscn" id="15_y4y7j"]
@@ -27,8 +27,6 @@
 [node name="Main" type="Node" unique_id=78254103]
 process_mode = 3
 script = ExtResource("1_m38sx")
-
-[node name="World" parent="." unique_id=488512853 instance=ExtResource("1_8mwbd")]
 
 [node name="Jugador" parent="." unique_id=2008163902 instance=ExtResource("2_nqdsl")]
 process_mode = 1
@@ -63,7 +61,8 @@ volume_db = -10.0
 bus = &"musica"
 
 [node name="inicio" type="AudioStreamPlayer2D" parent="." unique_id=864258055]
-stream = ExtResource("12_tudtf")
+stream = ExtResource("12_mtiip")
+volume_db = 9.97
 bus = &"sonidos"
 
 [node name="Pausa" parent="." unique_id=1010450789 instance=ExtResource("13_tdurr")]
@@ -109,6 +108,8 @@ grow_vertical = 2
 pivot_offset = Vector2(100, 25)
 text = "dial14: 1"
 label_settings = SubResource("LabelSettings_vrk45")
+
+[node name="World" parent="." unique_id=1826825749 instance=ExtResource("1_8mwbd")]
 
 [connection signal="damage" from="." to="Jugador" method="_on_main_damage"]
 [connection signal="shoot" from="Jugador" to="Bala" method="_on_jugador_shoot"]
