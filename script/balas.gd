@@ -25,10 +25,22 @@ func _on_timer_timeout():
 			#queue_free()
 			#hit_zombie.emit()
 
+#func _on_body_entered(body):
+	#if body is TileMapLayer:
+		#queue_free()
+	#elif body.has_method("muerte"):
+		#body.muerte()
+		#queue_free()
+		#hit_zombie.emit()
+
 func _on_body_entered(body):
-	if body is TileMapLayer:
+	# Si la bala choca con el jugador, la ignoramos para que no se destruya sola
+	if body.name == "Jugador": 
+		return
+		
+	if body is TileMapLayer or body.name == "World":
 		queue_free()
 	elif body.has_method("muerte"):
 		body.muerte()
 		queue_free()
-		hit_zombie.emit()
+		emit_signal("hit_zombie")

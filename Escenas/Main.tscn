@@ -21,6 +21,7 @@
 [ext_resource type="Script" uid="uid://ck7xw2li2yid6" path="res://script/camera_2d.gd" id="18_fhaj2"]
 [ext_resource type="Script" uid="uid://bwh88e6quspxk" path="res://script/mira.gd" id="19_1wrdp"]
 [ext_resource type="Texture2D" uid="uid://46bofpafy36n" path="res://Zombie Apocalypse Tileset/punto de mira.png" id="19_dj7fj"]
+[ext_resource type="PackedScene" uid="uid://27gt758urnfk" path="res://Escenas/cambio_horda.tscn" id="22_gk8m0"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_vrk45"]
 
@@ -110,6 +111,9 @@ text = "dial14: 1"
 label_settings = SubResource("LabelSettings_vrk45")
 
 [node name="World" parent="." unique_id=1826825749 instance=ExtResource("1_8mwbd")]
+
+[node name="CambioHorda" parent="." unique_id=1814153504 instance=ExtResource("22_gk8m0")]
+visible = false
 
 [connection signal="damage" from="." to="Jugador" method="_on_main_damage"]
 [connection signal="shoot" from="Jugador" to="Bala" method="_on_jugador_shoot"]

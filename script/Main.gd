@@ -51,7 +51,7 @@ func reset():
 	enemigos = max_enemigos
 	$Jugador.reset()
 	get_tree().call_group("enemigos", "queue_free")
-	get_tree().call_group("balas", "queue_free")
+	#get_tree().call_group("balas", "queue_free")
 	$HUD/Vidas.text = "X " +str(vidas)
 	$HUD/nOrda.text = ": " + str(ordas)
 	$HUD/Enemigos.text = "X " + str(max_enemigos)
@@ -87,7 +87,11 @@ func _process(_delta):
 		dificultad *= aumento_dificultad
 		zombie.objeto += 0.01
 		mostrar_texto_horda(ordas, $Horda)
-		#pulso_tiempo_nueva_horda()
+		$CambioHorda.modulate.a = 0.0
+		$CambioHorda.show()
+		var tween_flash = create_tween()
+		tween_flash.tween_property($CambioHorda, "modulate:a", 1.0, 0.2).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+		tween_flash.tween_property($CambioHorda, "modulate:a", 0.0, 0.4).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN)
 		if ordas % 5 == 0 and aumento_dificultad > 1:
 			aumento_dificultad -= 0.01
 		if $Spawner/Timer.wait_time > 0.25:
@@ -161,14 +165,7 @@ func mostrar_texto_horda(numero_horda: int, label_horda: Label):
 	tween.tween_property(label_horda, "scale", Vector2(1.0, 1.0), 0.4).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
 	tween.tween_property(label_horda, "modulate:a", 1.0, 0.3)
 	
-	await get_tree().create_timer(1.5).timeout
+	await get_tree().create_timer(1).timeout
 	
 	var tween_out = create_tween()
 	tween_out.tween_property(label_horda, "modulate:a", 0.0, 0.5)
-
-func pulso_tiempo_nueva_horda():
-	Engine.time_scale = 0.2
-	await get_tree().create_timer(0.15, true, false, true).timeout
-	
-	var tween = create_tween()
-	tween.tween_property(Engine, "time_scale", 1.0, 0.3)

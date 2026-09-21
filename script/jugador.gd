@@ -36,9 +36,8 @@ func reset():
 	$Cooldown.wait_time = START_SHOOT
 	
 	
-func _unhandled_input(event):
-	# Disparo en PC con mouse
-	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and OS.get_name() != "Android":
+func _input(event):
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 		if can_shoot:
 			var mouse_pos = get_global_mouse_position()
 			var dir = mouse_pos - position
@@ -60,8 +59,8 @@ func _unhandled_input(event):
 				casquillo.apply_central_impulse(direccion_expulsion * randf_range(80.0, 130.0))
 				casquillo.apply_torque_impulse(randf_range(-40.0, 40.0))
 			
-			can_shoot = false
-			$Cooldown.start()
+		can_shoot = false
+		$Cooldown.start()
 			
 
 	## Disparo en móvil con touch (fuera del joystick)
