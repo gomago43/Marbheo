@@ -11,11 +11,8 @@
 [ext_resource type="Texture2D" uid="uid://dh8y6juuibfl2" path="res://Zombie Apocalypse Tileset/Organized separated sprites/Player Character Walking Animation Frames/Zombie-Tileset---_0483_Capa-484.png" id="6_cl07n"]
 [ext_resource type="Texture2D" uid="uid://d1ftjq2ins37q" path="res://Zombie Apocalypse Tileset/Organized separated sprites/Player Character Walking Animation Frames/Zombie-Tileset---_0484_Capa-485.png" id="7_eylji"]
 [ext_resource type="Texture2D" uid="uid://dg7d5xvpilkc3" path="res://Zombie Apocalypse Tileset/Organized separated sprites/Damaged Player Animation Frames/Zombie-Tileset---_0487_Capa-488.png" id="11_srao3"]
-[ext_resource type="PackedScene" uid="uid://dtkj6tn6faufn" path="res://Escenas/virtual_joystick.tscn" id="12_7ammm"]
 [ext_resource type="Texture2D" uid="uid://b0rssinmyif1g" path="res://Zombie Apocalypse Tileset/Organized separated sprites/Damaged Player Animation Frames/Zombie-Tileset---_0485_Capa-486.png" id="12_40r6v"]
 [ext_resource type="AudioStream" uid="uid://bx57q5lmyuyau" path="res://musica/SONIDO_AL_COGER_COCACOLA.mp3" id="12_e6bo6"]
-[ext_resource type="PackedScene" uid="uid://c4i64bl74bq7g" path="res://Escenas/shoot_joystick.tscn" id="13_87vh0"]
-[ext_resource type="PackedScene" uid="uid://rwjabb6vflip" path="res://Escenas/joystick.tscn" id="14_tidje"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_kbwum"]
 animations = [{
@@ -119,14 +116,6 @@ one_shot = true
 stream = ExtResource("12_e6bo6")
 volume_db = -10.0
 bus = &"sonidos"
-
-[node name="VirtualJoystick" parent="." unique_id=409347460 instance=ExtResource("12_7ammm")]
-visible = false
-
-[node name="ShootJoystick" parent="." unique_id=1595310200 instance=ExtResource("13_87vh0")]
-visible = false
-
-[node name="Joystick" parent="." unique_id=1530939087 instance=ExtResource("14_tidje")]
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=214056129]
 position = Vector2(0, 16)

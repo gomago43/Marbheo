@@ -12,7 +12,6 @@ func _ready():
 		if i is Marker2D:
 			spawn_points.append(i)
 
-
 func _on_timer_timeout():
 	var enemigos = get_tree().get_nodes_in_group("enemigos")
 	if enemigos.size() < get_parent().max_enemigos:

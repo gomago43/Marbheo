@@ -10,7 +10,7 @@ var vivo : bool
 var entered : bool
 var speed : int = 100
 var direction : Vector2
-@export var objeto : float = 0.2
+@export var probobjeto : float = 0.2
 
 signal hit_player
 
@@ -52,7 +52,7 @@ func muerte():
 	$Area2D/CollisionShape2D.set_deferred("disabled", true)
 	$CollisionShape2D.set_deferred("disabled", true)
 	$muerte.play()
-	if randf() <= objeto:
+	if randf() <= probobjeto:
 		drop_item()
 
 func drop_item():

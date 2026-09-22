@@ -37,7 +37,6 @@ func reset():
 	
 	
 func _process(_delta):
-	# Si mantienes presionado el clic izquierdo y puedes disparar (y el juego no está pausado)
 	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and can_shoot and not get_tree().paused:
 		disparar()
 
@@ -65,40 +64,6 @@ func disparar():
 		var direccion_expulsion = Vector2.RIGHT.rotated(angulo_disparo + PI / 2)
 		casquillo.apply_central_impulse(direccion_expulsion * randf_range(80.0, 130.0))
 		casquillo.apply_torque_impulse(randf_range(-40.0, 40.0))
-#func _input(event):
-	#if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-		#if can_shoot:
-			#can_shoot = false
-			#$Cooldown.start()
-			#
-			#var mouse_pos = get_global_mouse_position()
-			#var dir = mouse_pos - position
-			#shoot.emit(position, dir)
-			#get_viewport().get_camera_2d().apply_shake(5.0)
-			#
-			#if casquillo_scene != null:
-				#var casquillo = casquillo_scene.instantiate() as RigidBody2D
-				#
-				#get_tree().current_scene.add_child(casquillo)
-				#
-				#var angulo_disparo = dir.angle()
-				#
-				#var offset = Vector2(10, 0).rotated(angulo_disparo)
-				#casquillo.global_position = global_position + offset
-				#casquillo.global_rotation = angulo_disparo
-				#
-				#var direccion_expulsion = Vector2.RIGHT.rotated(angulo_disparo + PI / 2)
-				#casquillo.apply_central_impulse(direccion_expulsion * randf_range(80.0, 130.0))
-				#casquillo.apply_torque_impulse(randf_range(-40.0, 40.0))
-				#
-	## Disparo en móvil con touch (fuera del joystick)
-	#elif event is InputEventScreenTouch and event.pressed:
-		#if can_shoot and not move_joystick.is_touch_on_joystick(event.position):
-			#var dir = event.position - position
-			#shoot.emit(position, dir)
-			#can_shoot = false
-			#$Cooldown.start()
-
 
 func get_input():
 	var dir := Input.get_vector("left", "right", "up", "down")
@@ -126,9 +91,6 @@ func _physics_process(_delta):
 			$AnimatedSprite2D.stop()
 			$AnimatedSprite2D.frame = 0
 			$GPUParticles2D.emitting = false
-		
-	#if input_dir != Vector2.ZERO:
-		#position += input_dir * speed * _delta
 
 func cocacola():
 	$objeto.play()
@@ -161,15 +123,3 @@ func _on_main_damage() -> void:
 func _on_animated_sprite_2d_animation_finished() -> void:
 	if $AnimatedSprite2D.animation == "daño":
 		damaged = false
-
-#func _on_aim_changed(dir: Vector2):
-	#shoot_direction = dir
-#
-#func _on_shoot_held(dir: Vector2):
-	#if can_shoot and dir != Vector2.ZERO:
-		#can_shoot = false
-		#shoot.emit(position, dir)
-		#$Cooldown.start()
-#
-#func _on_shoot_released():
-	#shoot_direction = Vector2.ZERO

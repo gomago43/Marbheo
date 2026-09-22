@@ -9,7 +9,7 @@ func _ready():
 	music_player.stream = preload("res://musica/MUSICA_MENU.mp3")
 	music_player.bus = "musica"
 	music_player.play()
-	var current_scene = get_tree().current_scene.name
+	#var current_scene = get_tree().current_scene.name
 
 func _exit_tree():
 	if music_player and music_player.playing:

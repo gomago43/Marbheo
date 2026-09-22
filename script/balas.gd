@@ -1,6 +1,6 @@
 extends Area2D
 
-var speed : int = 750 #igual mejor en 1000
+var speed : int = 750
 var direction : Vector2
 
 signal hit_zombie
@@ -15,26 +15,7 @@ func _ready():
 func _on_timer_timeout():
 	queue_free()
 
-
-#func _on_body_entered(body):
-	#if body.name == "World":
-		#queue_free()
-	#else :
-		#if body.vivo:
-			#body.muerte()
-			#queue_free()
-			#hit_zombie.emit()
-
-#func _on_body_entered(body):
-	#if body is TileMapLayer:
-		#queue_free()
-	#elif body.has_method("muerte"):
-		#body.muerte()
-		#queue_free()
-		#hit_zombie.emit()
-
 func _on_body_entered(body):
-	# Si la bala choca con el jugador, la ignoramos para que no se destruya sola
 	if body.name == "Jugador": 
 		return
 		

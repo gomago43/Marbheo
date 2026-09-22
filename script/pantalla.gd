@@ -7,7 +7,6 @@ var windowed_size = Vector2(1152,648)
 const MODO_PANTALLA : Array[String] = [
 	"Pantalla completa","Modo ventana","Ventana-sin-bordes","Pantalla completa sin bordes"]
 
-
 func _on_option_button_item_selected(index):
 	match index:
 		0:

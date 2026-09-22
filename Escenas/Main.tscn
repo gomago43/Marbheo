@@ -16,9 +16,6 @@
 [ext_resource type="Script" uid="uid://dmg54r7ut71yr" path="res://script/fadeoutinicio.gd" id="13_m3363"]
 [ext_resource type="PackedScene" uid="uid://bl1qjta2466qu" path="res://Escenas/pausa.tscn" id="13_tdurr"]
 [ext_resource type="PackedScene" uid="uid://dm3kqgspcyvw3" path="res://Escenas/zombie.tscn" id="14_r0yvf"]
-[ext_resource type="PackedScene" uid="uid://dtkj6tn6faufn" path="res://Escenas/virtual_joystick.tscn" id="15_y4y7j"]
-[ext_resource type="PackedScene" uid="uid://c4i64bl74bq7g" path="res://Escenas/shoot_joystick.tscn" id="16_66sba"]
-[ext_resource type="PackedScene" uid="uid://rwjabb6vflip" path="res://Escenas/joystick.tscn" id="17_xrrk0"]
 [ext_resource type="Script" uid="uid://ck7xw2li2yid6" path="res://script/camera_2d.gd" id="18_fhaj2"]
 [ext_resource type="Script" uid="uid://bwh88e6quspxk" path="res://script/mira.gd" id="19_1wrdp"]
 [ext_resource type="Texture2D" uid="uid://46bofpafy36n" path="res://Zombie Apocalypse Tileset/punto de mira.png" id="19_dj7fj"]
@@ -75,14 +72,6 @@ visible = false
 [node name="Zombie" parent="." unique_id=439956856 instance=ExtResource("14_r0yvf")]
 
 [node name="TouchScreenButton" type="TouchScreenButton" parent="." unique_id=525090831]
-
-[node name="VirtualJoystick" parent="." unique_id=1150982527 instance=ExtResource("15_y4y7j")]
-visible = false
-
-[node name="ShootJoystick" parent="." unique_id=1306795505 instance=ExtResource("16_66sba")]
-visible = false
-
-[node name="Joystick" parent="." unique_id=1585471702 instance=ExtResource("17_xrrk0")]
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=885196931]
 position = Vector2(574, 325)

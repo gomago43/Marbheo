@@ -59,12 +59,6 @@ func reset():
 	$Mira.show()
 	Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
 
-
-#func _unhandled_input(event: InputEvent) -> void:
-	#if event is InputEventKey:
-		#if event.keycode == KEY_ESCAPE:
-			#resume()
-
 func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("pause") && !GAME_OVER:
 		resume()
@@ -80,12 +74,11 @@ func resume():
 		Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
 		$Mira.show()
 
-
 func _process(_delta):
 	if orda_acabada():
 		ordas += 1
 		dificultad *= aumento_dificultad
-		zombie.objeto += 0.01
+		zombie.probobjeto += 0.01
 		mostrar_texto_horda(ordas, $Horda)
 		$CambioHorda.modulate.a = 0.0
 		$CambioHorda.show()
@@ -100,28 +93,6 @@ func _process(_delta):
 	if ordas-1 > Save.HORDA_MAX:
 		Save.HORDA_MAX = ordas-1
 		Save.save_data()
-
-
-#func _process(_delta):
-	#if orda_acabada():
-	##enemigos == 0:
-		#ordas += 1
-		#dificultad *= aumento_dificultad
-		#if $Spawner/Timer.wait_time > 0.25:
-			#$Spawner/Timer.wait_time -= 0.05
-		#nueva_orda()
-		#
-		##if (NUEVA_ORDA):
-			##$Orda.start()
-			##print("empezado")
-			##NUEVA_ORDA = false
-		##else:
-			##NUEVA_ORDA = true
-		##reset()
-
-	#if ordas-1 > Save.HORDA_MAX:
-		#Save.HORDA_MAX = ordas-1
-		#Save.save_data()
 
 func _on_bala_hit_z():
 	enemigos -= 1
@@ -141,19 +112,16 @@ func _on_spawner_hit_p():
 	else: 
 		damage.emit()
 
-
-
 func orda_acabada():
 	var muertos = true
-	var enemigos = get_tree().get_nodes_in_group("enemigos")
-	if enemigos.size() == max_enemigos:
-		for i in enemigos:
+	var enemigo = get_tree().get_nodes_in_group("enemigos")
+	if enemigo.size() == max_enemigos:
+		for i in enemigo:
 			if i.vivo:
 				muertos = false
 		return muertos
 	else: 
 		return false
-
 
 func mostrar_texto_horda(numero_horda: int, label_horda: Label):
 	label_horda.text = "dial14: " + str(numero_horda)

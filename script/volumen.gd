@@ -13,9 +13,8 @@ func _ready() -> void:
 		AudioServer.get_bus_volume_db(indice)
 	)
 
-func valor_cambiado(valor: float) -> void:
+func valor_cambiado(_valor: float) -> void:
 	AudioServer.set_bus_volume_db(
 		indice,
 		linear_to_db(value)
 	)
-	
