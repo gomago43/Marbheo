@@ -36,33 +36,61 @@ func reset():
 	$Cooldown.wait_time = START_SHOOT
 	
 	
-func _input(event):
-	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-		if can_shoot:
-			var mouse_pos = get_global_mouse_position()
-			var dir = mouse_pos - position
-			shoot.emit(position, dir)
-			get_viewport().get_camera_2d().apply_shake(5.0)
-			
-			if casquillo_scene != null:
-				var casquillo = casquillo_scene.instantiate() as RigidBody2D
-				
-				get_tree().current_scene.add_child(casquillo)
-				
-				var angulo_disparo = dir.angle()
-				
-				var offset = Vector2(10, 0).rotated(angulo_disparo)
-				casquillo.global_position = global_position + offset
-				casquillo.global_rotation = angulo_disparo
-				
-				var direccion_expulsion = Vector2.RIGHT.rotated(angulo_disparo + PI / 2)
-				casquillo.apply_central_impulse(direccion_expulsion * randf_range(80.0, 130.0))
-				casquillo.apply_torque_impulse(randf_range(-40.0, 40.0))
-			
-		can_shoot = false
-		$Cooldown.start()
-			
+func _process(_delta):
+	# Si mantienes presionado el clic izquierdo y puedes disparar (y el juego no está pausado)
+	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and can_shoot and not get_tree().paused:
+		disparar()
 
+func disparar():
+	can_shoot = false
+	$Cooldown.start()
+	
+	var mouse_pos = get_global_mouse_position()
+	var dir = mouse_pos - position
+	shoot.emit(position, dir)
+	
+	var cam = get_viewport().get_camera_2d()
+	if cam and cam.has_method("apply_shake"):
+		cam.apply_shake(5.0)
+	
+	if casquillo_scene != null:
+		var casquillo = casquillo_scene.instantiate() as RigidBody2D
+		get_tree().current_scene.add_child(casquillo)
+		
+		var angulo_disparo = dir.angle()
+		var offset = Vector2(10, 0).rotated(angulo_disparo)
+		casquillo.global_position = global_position + offset
+		casquillo.global_rotation = angulo_disparo
+		
+		var direccion_expulsion = Vector2.RIGHT.rotated(angulo_disparo + PI / 2)
+		casquillo.apply_central_impulse(direccion_expulsion * randf_range(80.0, 130.0))
+		casquillo.apply_torque_impulse(randf_range(-40.0, 40.0))
+#func _input(event):
+	#if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+		#if can_shoot:
+			#can_shoot = false
+			#$Cooldown.start()
+			#
+			#var mouse_pos = get_global_mouse_position()
+			#var dir = mouse_pos - position
+			#shoot.emit(position, dir)
+			#get_viewport().get_camera_2d().apply_shake(5.0)
+			#
+			#if casquillo_scene != null:
+				#var casquillo = casquillo_scene.instantiate() as RigidBody2D
+				#
+				#get_tree().current_scene.add_child(casquillo)
+				#
+				#var angulo_disparo = dir.angle()
+				#
+				#var offset = Vector2(10, 0).rotated(angulo_disparo)
+				#casquillo.global_position = global_position + offset
+				#casquillo.global_rotation = angulo_disparo
+				#
+				#var direccion_expulsion = Vector2.RIGHT.rotated(angulo_disparo + PI / 2)
+				#casquillo.apply_central_impulse(direccion_expulsion * randf_range(80.0, 130.0))
+				#casquillo.apply_torque_impulse(randf_range(-40.0, 40.0))
+				#
 	## Disparo en móvil con touch (fuera del joystick)
 	#elif event is InputEventScreenTouch and event.pressed:
 		#if can_shoot and not move_joystick.is_touch_on_joystick(event.position):
