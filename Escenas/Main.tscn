@@ -12,7 +12,8 @@
 [ext_resource type="PackedScene" uid="uid://c06xos17gjhcq" path="res://Escenas/game_over.tscn" id="8_iybvs"]
 [ext_resource type="AudioStream" uid="uid://o41r11cyapj" path="res://musica/freesound_community-male_hurt7-48124.mp3" id="11_mtiip"]
 [ext_resource type="AudioStream" uid="uid://dc3setl18pi01" path="res://musica/PerituneMaterial_Raid_loop.mp3" id="11_x3lhd"]
-[ext_resource type="AudioStream" uid="uid://b3ajkb74dihig" path="res://musica/battle_horn_1-6931.mp3" id="12_mtiip"]
+[ext_resource type="AudioStream" uid="uid://pyto78kbxbh" path="res://musica/shofar-trompeta (mp3cut.net).mp3" id="12_gk8m0"]
+[ext_resource type="Script" uid="uid://dmg54r7ut71yr" path="res://script/fadeoutinicio.gd" id="13_m3363"]
 [ext_resource type="PackedScene" uid="uid://bl1qjta2466qu" path="res://Escenas/pausa.tscn" id="13_tdurr"]
 [ext_resource type="PackedScene" uid="uid://dm3kqgspcyvw3" path="res://Escenas/zombie.tscn" id="14_r0yvf"]
 [ext_resource type="PackedScene" uid="uid://dtkj6tn6faufn" path="res://Escenas/virtual_joystick.tscn" id="15_y4y7j"]
@@ -62,9 +63,10 @@ volume_db = -10.0
 bus = &"musica"
 
 [node name="inicio" type="AudioStreamPlayer2D" parent="." unique_id=864258055]
-stream = ExtResource("12_mtiip")
+stream = ExtResource("12_gk8m0")
 volume_db = 9.97
 bus = &"sonidos"
+script = ExtResource("13_m3363")
 
 [node name="Pausa" parent="." unique_id=1010450789 instance=ExtResource("13_tdurr")]
 process_mode = 2

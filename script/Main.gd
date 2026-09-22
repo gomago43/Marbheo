@@ -46,12 +46,12 @@ func volver_a_jugar():
 
 func reset():
 	NUEVA_ORDA = false
-	$inicio.play()
+	$inicio.play_with_fade_out()
 	max_enemigos = int(dificultad)
 	enemigos = max_enemigos
 	$Jugador.reset()
 	get_tree().call_group("enemigos", "queue_free")
-	#get_tree().call_group("balas", "queue_free")
+	get_tree().call_group("balas", "queue_free")
 	$HUD/Vidas.text = "X " +str(vidas)
 	$HUD/nOrda.text = ": " + str(ordas)
 	$HUD/Enemigos.text = "X " + str(max_enemigos)
@@ -65,7 +65,7 @@ func reset():
 		#if event.keycode == KEY_ESCAPE:
 			#resume()
 
-func _input(event: InputEvent) -> void:
+func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("pause") && !GAME_OVER:
 		resume()
 
@@ -90,8 +90,8 @@ func _process(_delta):
 		$CambioHorda.modulate.a = 0.0
 		$CambioHorda.show()
 		var tween_flash = create_tween()
-		tween_flash.tween_property($CambioHorda, "modulate:a", 1.0, 0.2).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
-		tween_flash.tween_property($CambioHorda, "modulate:a", 0.0, 0.4).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN)
+		tween_flash.tween_property($CambioHorda, "modulate:a", 1.0, 0.15).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+		tween_flash.tween_property($CambioHorda, "modulate:a", 0.0, 0.25).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN)
 		if ordas % 5 == 0 and aumento_dificultad > 1:
 			aumento_dificultad -= 0.01
 		if $Spawner/Timer.wait_time > 0.25:

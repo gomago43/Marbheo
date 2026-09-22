@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://pyto78kbxbh"
+path="res://.godot/imported/shofar-trompeta (mp3cut.net).mp3-a46bc083a3c096e4504d42beda343fb3.mp3str"
+
+[deps]
+
+source_file="res://musica/shofar-trompeta (mp3cut.net).mp3"
+dest_files=["res://.godot/imported/shofar-trompeta (mp3cut.net).mp3-a46bc083a3c096e4504d42beda343fb3.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4
