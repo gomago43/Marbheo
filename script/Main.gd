@@ -156,7 +156,7 @@ func orda_acabada():
 
 
 func mostrar_texto_horda(numero_horda: int, label_horda: Label):
-	label_horda.text = "HORDA " + str(numero_horda)
+	label_horda.text = "dial14: " + str(numero_horda)
 	label_horda.scale = Vector2(2.0, 2.0)
 	label_horda.modulate.a = 0.0
 	label_horda.visible = true
@@ -165,7 +165,7 @@ func mostrar_texto_horda(numero_horda: int, label_horda: Label):
 	tween.tween_property(label_horda, "scale", Vector2(1.0, 1.0), 0.4).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
 	tween.tween_property(label_horda, "modulate:a", 1.0, 0.3)
 	
-	await get_tree().create_timer(1).timeout
+	await get_tree().create_timer(1.2).timeout
 	
 	var tween_out = create_tween()
 	tween_out.tween_property(label_horda, "modulate:a", 0.0, 0.5)
