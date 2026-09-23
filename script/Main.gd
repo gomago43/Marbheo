@@ -106,6 +106,7 @@ func _on_spawner_hit_p():
 		get_tree().paused = true
 		$GameOver/Ordas2.text = str(ordas- 1)
 		$GameOver.show()
+		$gameover.play()
 		GAME_OVER = true
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 		$Mira.hide()

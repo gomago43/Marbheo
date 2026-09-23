@@ -19,6 +19,7 @@
 [ext_resource type="Script" uid="uid://ck7xw2li2yid6" path="res://script/camera_2d.gd" id="18_fhaj2"]
 [ext_resource type="Script" uid="uid://bwh88e6quspxk" path="res://script/mira.gd" id="19_1wrdp"]
 [ext_resource type="Texture2D" uid="uid://46bofpafy36n" path="res://Zombie Apocalypse Tileset/punto de mira.png" id="19_dj7fj"]
+[ext_resource type="AudioStream" uid="uid://pgep5vlj5ves" path="res://musica/dragon-studio-zombie-sfx-450450.mp3" id="21_mtiip"]
 [ext_resource type="PackedScene" uid="uid://27gt758urnfk" path="res://Escenas/cambio_horda.tscn" id="22_gk8m0"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_vrk45"]
@@ -108,6 +109,9 @@ vertical_alignment = 1
 
 [node name="CambioHorda" parent="." unique_id=1814153504 instance=ExtResource("22_gk8m0")]
 visible = false
+
+[node name="gameover" type="AudioStreamPlayer2D" parent="." unique_id=39891650]
+stream = ExtResource("21_mtiip")
 
 [connection signal="damage" from="." to="Jugador" method="_on_main_damage"]
 [connection signal="shoot" from="Jugador" to="Bala" method="_on_jugador_shoot"]
