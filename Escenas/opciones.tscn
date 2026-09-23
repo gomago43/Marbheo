@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dnmp118jyhvuu" path="res://script/opciones.gd" id="1_3u5qw"]
 [ext_resource type="PackedScene" uid="uid://bw5kjamerkpq1" path="res://Escenas/volumen.tscn" id="1_anbif"]
-[ext_resource type="Texture2D" uid="uid://t7oku0r5cnt7" path="res://Zombie Apocalypse Tileset/Captura de pantalla 2025-02-19 204843.png" id="2_7jiul"]
+[ext_resource type="Texture2D" uid="uid://77u0ixc1ovd" path="res://Zombie Apocalypse Tileset/lionfive-horror-2861891.jpg" id="2_xpcmc"]
 [ext_resource type="PackedScene" uid="uid://bb5pccilbwgfl" path="res://Escenas/pantalla.tscn" id="4_6kstm"]
 [ext_resource type="Texture2D" uid="uid://14g6sf4oi3v2" path="res://Zombie Apocalypse Tileset/foto_menu.jpg" id="5_4p3c0"]
 
@@ -10,15 +10,15 @@
 script = ExtResource("1_3u5qw")
 
 [node name="Panel" type="Sprite2D" parent="." unique_id=974229977]
-position = Vector2(572.5, 324.75)
-scale = Vector2(2.33133, 0.958394)
-texture = ExtResource("2_7jiul")
+position = Vector2(574.77997, 324.3)
+scale = Vector2(0.56173825, 0.50890625)
+texture = ExtResource("2_xpcmc")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=2040679850]
-offset_left = 50.0
-offset_top = 444.0
-offset_right = 267.0
-offset_bottom = 593.0
+offset_left = 18.0
+offset_top = 221.0
+offset_right = 235.0
+offset_bottom = 370.0
 
 [node name="total_label" type="Label" parent="VBoxContainer" unique_id=243823615]
 layout_mode = 2

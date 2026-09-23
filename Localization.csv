@@ -9,13 +9,13 @@ dial7,UP:,ARRIBA:
 dial8,DOWN:,ABAJO:
 dial9,LEFT:,IZQUIERDA:
 dial10,RIGHT:,DERECHA:
-dial11,AIM: MOUSE POINTER,APUNTAR:    PUNTERO DEL RATON
-dial12,SHOOT:    LEFT CLICK,DISPARAR:     CLICK IZQUIERDO
+dial11,AIM: MOUSE POINTER,APUNTAR:                          PUNTERO DEL RATON
+dial12,SHOOT:    LEFT CLICK,DISPARAR:                          CLICK IZQUIERDO
 dial13,PICK  UP OBJECT:  STEP OVER IT,RECOGER OBJETO:    PASAR ENCIMA DEL OBJETO
 dial14,WAVE,HORDA  
 dial15,WAVES SURVIVED:,HORDAS SOBREVIVIDAS:
 dial16,RESTART,VOLVER A EMPEZAR
-dial17,ESC/ESPACE,ESC/ESPACIO
+dial17,ESC/ESPACE,ESC/ESPACIO                          
 dial18,MASTER VOLUME,VOLUMEN GENERAL
 dial19,MUSIC VOLUME,VOLUMEN MUSICA
 dial20,EFFECTS VOLUME,VOLUMEN EFECTOS
@@ -28,3 +28,4 @@ dial26,MAX HORDE:,HORDA MAX:
 dial27,SELECT LANGUAGE,SELECCIONAR IDIOMA
 dial28,SCREEN MODE,MODO DE PANTALLA
 dial29,RESUME,CONTINUAR
+dial30,Face off against increasingly fast and deadly undead hordes. Use your aim and reflexes to hold your ground as long as you can. How many waves can you survive before you're overrun?,Enfrentate a hordas de zombies cada vez más rápidas y letales. Usa tu puntería y tus reflejos para resistir tanto como puedas. ¿Cuántas oleadas podrás sobrevivir antes de ser devorado? 

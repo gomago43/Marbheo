@@ -1,132 +1,146 @@
-[gd_scene load_steps=4 format=3 uid="uid://s83ig6rwigiv"]
+[gd_scene format=3 uid="uid://s83ig6rwigiv"]
 
-[ext_resource type="Script" path="res://script/tutorial.gd" id="1_0ongv"]
-[ext_resource type="Texture2D" uid="uid://c0e38llvbud40" path="res://Zombie Apocalypse Tileset/Captura de pantalla 2025-02-19 204812.png" id="2_vna22"]
+[ext_resource type="Script" uid="uid://7m0l65l8uvin" path="res://script/tutorial.gd" id="1_0ongv"]
+[ext_resource type="Texture2D" uid="uid://derideu6bhh6q" path="res://Zombie Apocalypse Tileset/prince_trio-zombie-4127575.jpg" id="2_unt0s"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_5gvy4"]
 font_size = 30
 outline_size = 7
 outline_color = Color(0, 0, 0, 1)
 
-[node name="CanvasLayer" type="CanvasLayer"]
+[sub_resource type="LabelSettings" id="LabelSettings_l4b6k"]
+font_size = 23
+
+[node name="CanvasLayer" type="CanvasLayer" unique_id=1577696858]
 script = ExtResource("1_0ongv")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(575, 324.25)
-scale = Vector2(2.33535, 1.03577)
-texture = ExtResource("2_vna22")
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1475296573]
+position = Vector2(576.7875, 325.5)
+scale = Vector2(0.11131351, 0.108166665)
+texture = ExtResource("2_unt0s")
 
-[node name="Arriba" type="Label" parent="."]
-offset_left = 59.0
-offset_top = 163.0
-offset_right = 544.0
-offset_bottom = 211.0
+[node name="Arriba" type="Label" parent="." unique_id=1516124721]
+offset_left = 48.0
+offset_top = 56.0
+offset_right = 533.0
+offset_bottom = 104.0
 text = "dial7"
 label_settings = SubResource("LabelSettings_5gvy4")
 
-[node name="controles" type="Label" parent="."]
-offset_left = 55.0
-offset_top = 351.0
-offset_right = 540.0
-offset_bottom = 399.0
+[node name="controles" type="Label" parent="." unique_id=1227285803]
+offset_left = 449.0
+offset_top = 55.0
+offset_right = 934.0
+offset_bottom = 103.0
 text = "dial6"
 label_settings = SubResource("LabelSettings_5gvy4")
 
-[node name="Arriba2" type="Label" parent="."]
-offset_left = 160.0
-offset_top = 163.0
-offset_right = 645.0
-offset_bottom = 211.0
+[node name="Arriba2" type="Label" parent="." unique_id=1542159077]
+offset_left = 149.0
+offset_top = 56.0
+offset_right = 634.0
+offset_bottom = 104.0
 text = "                    W / ⬆"
 label_settings = SubResource("LabelSettings_5gvy4")
 
-[node name="controles2" type="Label" parent="."]
-offset_left = 108.0
-offset_top = 351.0
-offset_right = 593.0
-offset_bottom = 399.0
+[node name="controles2" type="Label" parent="." unique_id=937374324]
+offset_left = 502.0
+offset_top = 55.0
+offset_right = 987.0
+offset_bottom = 103.0
 text = "dial17"
 label_settings = SubResource("LabelSettings_5gvy4")
 horizontal_alignment = 1
 
-[node name="Abajo" type="Label" parent="."]
-offset_left = 59.0
-offset_top = 196.0
-offset_right = 544.0
-offset_bottom = 244.0
+[node name="Abajo" type="Label" parent="." unique_id=1006339233]
+offset_left = 48.0
+offset_top = 89.0
+offset_right = 533.0
+offset_bottom = 137.0
 text = "dial8"
 label_settings = SubResource("LabelSettings_5gvy4")
 
-[node name="Abajo2" type="Label" parent="."]
-offset_left = 160.0
-offset_top = 196.0
-offset_right = 645.0
-offset_bottom = 244.0
+[node name="Abajo2" type="Label" parent="." unique_id=2031739151]
+offset_left = 149.0
+offset_top = 89.0
+offset_right = 634.0
+offset_bottom = 137.0
 text = "                     S / ⬇  "
 label_settings = SubResource("LabelSettings_5gvy4")
 
-[node name="Izquierda" type="Label" parent="."]
-offset_left = 58.0
-offset_top = 230.0
-offset_right = 543.0
-offset_bottom = 278.0
+[node name="Izquierda" type="Label" parent="." unique_id=450954842]
+offset_left = 47.0
+offset_top = 123.0
+offset_right = 532.0
+offset_bottom = 171.0
 text = "dial9"
 label_settings = SubResource("LabelSettings_5gvy4")
 
-[node name="Izquierda2" type="Label" parent="."]
-offset_left = 159.0
-offset_top = 230.0
-offset_right = 644.0
-offset_bottom = 278.0
+[node name="Izquierda2" type="Label" parent="." unique_id=805083950]
+offset_left = 148.0
+offset_top = 123.0
+offset_right = 633.0
+offset_bottom = 171.0
 text = "                    A / ⬅"
 label_settings = SubResource("LabelSettings_5gvy4")
 
-[node name="Derecha" type="Label" parent="."]
-offset_left = 59.0
-offset_top = 263.0
-offset_right = 544.0
-offset_bottom = 311.0
+[node name="Derecha" type="Label" parent="." unique_id=891853302]
+offset_left = 48.0
+offset_top = 156.0
+offset_right = 533.0
+offset_bottom = 204.0
 text = "dial10"
 label_settings = SubResource("LabelSettings_5gvy4")
 
-[node name="Derecha2" type="Label" parent="."]
-offset_left = 160.0
-offset_top = 263.0
-offset_right = 645.0
-offset_bottom = 311.0
+[node name="Derecha2" type="Label" parent="." unique_id=378596707]
+offset_left = 149.0
+offset_top = 156.0
+offset_right = 634.0
+offset_bottom = 204.0
 text = "                    D / ⮕"
 label_settings = SubResource("LabelSettings_5gvy4")
 
-[node name="Apuntar" type="Label" parent="."]
-offset_left = 58.0
-offset_top = 417.0
-offset_right = 646.0
-offset_bottom = 465.0
+[node name="Apuntar" type="Label" parent="." unique_id=1863621414]
+offset_left = 447.0
+offset_top = 91.0
+offset_right = 1035.0
+offset_bottom = 139.0
 text = "dial11"
 label_settings = SubResource("LabelSettings_5gvy4")
 
-[node name="Disparar" type="Label" parent="."]
-offset_left = 56.0
-offset_top = 472.0
-offset_right = 644.0
-offset_bottom = 520.0
+[node name="Disparar" type="Label" parent="." unique_id=12513059]
+offset_left = 446.0
+offset_top = 126.0
+offset_right = 1034.0
+offset_bottom = 174.0
 text = "dial12"
 label_settings = SubResource("LabelSettings_5gvy4")
 
-[node name="Objeto" type="Label" parent="."]
-offset_left = 56.0
-offset_top = 532.0
-offset_right = 644.0
-offset_bottom = 580.0
+[node name="Objeto" type="Label" parent="." unique_id=1133654868]
+offset_left = 446.0
+offset_top = 160.0
+offset_right = 1034.0
+offset_bottom = 208.0
 text = "dial13"
 label_settings = SubResource("LabelSettings_5gvy4")
 
-[node name="Button" type="Button" parent="."]
+[node name="Button" type="Button" parent="." unique_id=832038754]
 offset_left = 867.0
 offset_top = 526.0
 offset_right = 1082.0
 offset_bottom = 582.0
 theme_override_font_sizes/font_size = 26
 text = "dial25"
+
+[node name="Descripcion" type="Label" parent="." unique_id=1066803359]
+offset_left = 113.0
+offset_top = 225.0
+offset_right = 993.0
+offset_bottom = 350.0
+theme_override_font_sizes/font_size = 19
+text = "dial30"
+label_settings = SubResource("LabelSettings_l4b6k")
+horizontal_alignment = 1
+autowrap_mode = 2
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
