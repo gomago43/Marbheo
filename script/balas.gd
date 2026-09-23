@@ -1,6 +1,6 @@
 extends Area2D
 
-var speed : int = 750
+var speed : int = 1250
 var direction : Vector2
 
 signal hit_zombie

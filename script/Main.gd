@@ -124,7 +124,7 @@ func orda_acabada():
 		return false
 
 func mostrar_texto_horda(numero_horda: int, label_horda: Label):
-	label_horda.text = "dial14: " + str(numero_horda)
+	label_horda.text = tr("dial14") + " " + str(numero_horda)
 	label_horda.scale = Vector2(2.0, 2.0)
 	label_horda.modulate.a = 0.0
 	label_horda.visible = true
