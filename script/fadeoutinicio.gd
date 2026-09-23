@@ -1,7 +1,7 @@
 extends AudioStreamPlayer2D
 
 func play_with_fade_out():
-	volume_db = 9.97
+	volume_db = 15
 	play()
 	
 	await get_tree().create_timer(1.5).timeout
