@@ -1,0 +1,7 @@
+[gd_resource type="Theme" format=3 uid="uid://repyv47wpmru"]
+
+[ext_resource type="FontFile" uid="uid://b5ohgmfqns7cf" path="res://SyneTactile-Regular.ttf" id="1_e1x85"]
+
+[resource]
+default_font = ExtResource("1_e1x85")
+default_font_size = 30

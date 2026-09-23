@@ -79,12 +79,12 @@ func _process(_delta):
 		ordas += 1
 		dificultad *= aumento_dificultad
 		zombie.probobjeto += 0.01
-		mostrar_texto_horda(ordas, $Horda)
 		$CambioHorda.modulate.a = 0.0
 		$CambioHorda.show()
 		var tween_flash = create_tween()
 		tween_flash.tween_property($CambioHorda, "modulate:a", 1.0, 0.15).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
 		tween_flash.tween_property($CambioHorda, "modulate:a", 0.0, 0.25).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN)
+		mostrar_texto_horda(ordas, $Horda)
 		if ordas % 5 == 0 and aumento_dificultad > 1:
 			aumento_dificultad -= 0.01
 		if $Spawner/Timer.wait_time > 0.25:
@@ -125,12 +125,12 @@ func orda_acabada():
 
 func mostrar_texto_horda(numero_horda: int, label_horda: Label):
 	label_horda.text = tr("dial14") + " " + str(numero_horda)
-	label_horda.scale = Vector2(2.0, 2.0)
+	label_horda.scale = Vector2(3.5, 3.5)
 	label_horda.modulate.a = 0.0
 	label_horda.visible = true
 	
 	var tween = create_tween().set_parallel(true)
-	tween.tween_property(label_horda, "scale", Vector2(1.0, 1.0), 0.4).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+	tween.tween_property(label_horda, "scale", Vector2(2.0, 2.0), 0.4).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
 	tween.tween_property(label_horda, "modulate:a", 1.0, 0.3)
 	
 	await get_tree().create_timer(1.2).timeout

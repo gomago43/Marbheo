@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c48nd46qwb5wu" path="res://script/Menu.gd" id="1_4qk05"]
 [ext_resource type="Texture2D" uid="uid://14g6sf4oi3v2" path="res://Zombie Apocalypse Tileset/foto_menu.jpg" id="2_l2b7d"]
+[ext_resource type="FontFile" uid="uid://b5ohgmfqns7cf" path="res://SyneTactile-Regular.ttf" id="3_17m5t"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_iti25"]
 font_size = 60
@@ -26,6 +27,7 @@ offset_left = -10.0
 offset_top = 8.0
 offset_right = 382.0
 offset_bottom = 104.0
+theme_override_fonts/font = ExtResource("3_17m5t")
 text = "MARBHEO"
 label_settings = SubResource("LabelSettings_iti25")
 horizontal_alignment = 1

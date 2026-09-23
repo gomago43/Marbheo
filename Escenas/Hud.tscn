@@ -11,6 +11,8 @@ border_width_right = 1
 border_width_bottom = 1
 border_color = Color(0, 0, 0, 1)
 
+[sub_resource type="Theme" id="Theme_suhca"]
+
 [node name="HUD" type="CanvasLayer" unique_id=78190877]
 
 [node name="Panel" type="Panel" parent="." unique_id=1477821057]
@@ -43,6 +45,7 @@ offset_left = 6.0
 offset_top = -3.0
 offset_right = 1152.0
 offset_bottom = 29.0
+theme = SubResource("Theme_suhca")
 theme_override_font_sizes/font_size = 20
 text = "dial14"
 horizontal_alignment = 1
