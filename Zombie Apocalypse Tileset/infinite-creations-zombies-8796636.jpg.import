@@ -2,7 +2,7 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://g78o0vg61ntl"
+uid="uid://bqtf4joc4yixv"
 path="res://.godot/imported/infinite-creations-zombies-8796636.jpg-eeb59c79d8c44283c246ffe5f28f5c0d.ctex"
 metadata={
 "vram_texture": false
@@ -17,7 +17,7 @@ dest_files=["res://.godot/imported/infinite-creations-zombies-8796636.jpg-eeb59c
 
 compress/mode=0
 compress/high_quality=false
-compress/lossy_quality=0.7
+compress/lossy_quality=0.1
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0
 compress/hdr_compression=1

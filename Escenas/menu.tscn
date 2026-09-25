@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cduwilsw32at2"]
 
 [ext_resource type="Script" uid="uid://c48nd46qwb5wu" path="res://script/Menu.gd" id="1_4qk05"]
-[ext_resource type="Texture2D" uid="uid://g78o0vg61ntl" path="res://Zombie Apocalypse Tileset/infinite-creations-zombies-8796636.jpg" id="2_17m5t"]
+[ext_resource type="Texture2D" uid="uid://bqtf4joc4yixv" path="res://Zombie Apocalypse Tileset/infinite-creations-zombies-8796636.jpg" id="2_17m5t"]
 [ext_resource type="FontFile" uid="uid://b5ohgmfqns7cf" path="res://SyneTactile-Regular.ttf" id="3_17m5t"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_iti25"]

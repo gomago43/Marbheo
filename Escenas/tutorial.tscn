@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://s83ig6rwigiv"]
 
 [ext_resource type="Script" uid="uid://7m0l65l8uvin" path="res://script/tutorial.gd" id="1_0ongv"]
-[ext_resource type="Texture2D" uid="uid://derideu6bhh6q" path="res://Zombie Apocalypse Tileset/prince_trio-zombie-4127575.jpg" id="2_unt0s"]
+[ext_resource type="Texture2D" uid="uid://dm4m8ham6dfg6" path="res://iloveimg-compressed/prince_trio-zombie-4127575.jpg" id="2_unt0s"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_5gvy4"]
 font_size = 30
