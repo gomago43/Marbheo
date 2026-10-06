@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://bw5kjamerkpq1" path="res://Escenas/volumen.tscn" id="1_anbif"]
 [ext_resource type="Texture2D" uid="uid://77u0ixc1ovd" path="res://Zombie Apocalypse Tileset/lionfive-horror-2861891.jpg" id="2_xpcmc"]
 [ext_resource type="PackedScene" uid="uid://bb5pccilbwgfl" path="res://Escenas/pantalla.tscn" id="4_6kstm"]
-[ext_resource type="Texture2D" uid="uid://14g6sf4oi3v2" path="res://Zombie Apocalypse Tileset/foto_menu.jpg" id="5_4p3c0"]
+[ext_resource type="Script" uid="uid://3yfcei0ryvut" path="res://Escenas/cambio_idioma.gd" id="5_xpcmc"]
 
 [node name="Opciones" type="CanvasLayer" unique_id=341501229]
 script = ExtResource("1_3u5qw")
@@ -51,13 +51,6 @@ offset_right = 1123.0
 offset_bottom = 610.0
 text = "dial25"
 
-[node name="FotoMenu" type="Sprite2D" parent="." unique_id=653726881]
-visible = false
-show_behind_parent = true
-position = Vector2(577, 321)
-scale = Vector2(2.885, 2.576)
-texture = ExtResource("5_4p3c0")
-
 [node name="Pantalla" parent="." unique_id=453847138 instance=ExtResource("4_6kstm")]
 offset_left = 2.0
 offset_top = 8.0
@@ -82,10 +75,10 @@ offset_bottom = 150.0
 selected = 0
 allow_reselect = true
 item_count = 2
-popup/item_0/text = "English"
 popup/item_0/id = 0
-popup/item_1/text = "Español"
 popup/item_1/id = 1
+script = ExtResource("5_xpcmc")
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 [connection signal="item_selected" from="OptionButton" to="." method="_on_option_button_item_selected"]
+[connection signal="item_selected" from="OptionButton" to="OptionButton" method="_on_item_selected"]

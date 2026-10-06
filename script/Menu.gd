@@ -11,7 +11,7 @@ func _ready():
 			Musica.music_player.play()
 
 func _on_jugar_pressed():
-	get_tree().change_scene_to_file("res://Escenas/Main.tscn")
+	get_tree().change_scene_to_file("res://Escenas/previo.tscn")
 
 func _on_opciones_pressed():
 	get_tree().change_scene_to_file("res://Escenas/opciones.tscn")
