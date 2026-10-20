@@ -1,5 +1,7 @@
 extends Node2D
 
+const JUEGO = preload("res://Escenas/Main.tscn")
+
 var music_player: AudioStreamPlayer
 
 func _ready():
@@ -12,7 +14,6 @@ func _ready():
 
 func _on_jugar_pressed():
 	_start()
-	preload("res://Escenas/Main.tscn")
 
 func _on_opciones_pressed():
 	get_tree().change_scene_to_file("res://Escenas/opciones.tscn")
@@ -47,4 +48,4 @@ func _start():
 	
 	await tween_label.finished
 	
-	get_tree().change_scene_to_file("res://Escenas/Main.tscn")
+	get_tree().change_scene_to_packed(JUEGO)

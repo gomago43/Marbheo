@@ -1,9 +1,17 @@
-[gd_scene format=3 uid="uid://dj2h78121l501"]
+[gd_scene format=3 uid="uid://05fl0pg4dehf"]
 
-[ext_resource type="Script" uid="uid://bs5kqg1sk51g1" path="res://script/previo.gd" id="1_kfa2a"]
+[sub_resource type="GDScript" id="GDScript_s4ojb"]
+script/source = "extends CanvasLayer
+
+func _ready() -> void:
+	
+	await get_tree().create_timer(1.2).timeout
+	
+	get_tree().change_scene_to_file(\"res://Escenas/Main.tscn\")
+"
 
 [node name="previo" type="CanvasLayer" unique_id=859439680]
-script = ExtResource("1_kfa2a")
+script = SubResource("GDScript_s4ojb")
 
 [node name="Panel" type="Panel" parent="." unique_id=1075602237]
 anchors_preset = 15
