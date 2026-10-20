@@ -32,17 +32,18 @@ func _start():
 	
 	$Label.pivot_offset = $Label.size / 2
 	
-	#var tween_label = create_tween().set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
-	#tween_label.tween_property($Label, "scale", Vector2(4.0, 4.0), 3.0)
-	
+	#Texto ampliado que ocupa toda la pantalla
 	var tween_label = create_tween().set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
-	var tween_fondo = create_tween().set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+	tween_label.tween_property($Label, "scale", Vector2(4.0, 4.0), 3.0)
 	
-	tween_label.tween_property($Label, "scale", Vector2(15.0, 15.0), 3.0)
+	#var tween_label = create_tween().set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+	#var tween_fondo = create_tween().set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+	#
+	##Texto ampliado hasta el maximo
+	#tween_label.tween_property($Label, "scale", Vector2(15.0, 15.0), 3.0)
 	
-	#await get_tree().create_timer(1.5).timeout
-	
-	tween_fondo.tween_property($Sprite2D, "scale", Vector2(5.0, 5.0), 1.5)
+	##Fondo ampliado
+	#tween_fondo.tween_property($Sprite2D, "scale", Vector2(1.2, 1.2), 12)
 	
 	await tween_label.finished
 	
