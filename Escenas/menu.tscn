@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://c48nd46qwb5wu" path="res://script/Menu.gd" id="1_4qk05"]
 [ext_resource type="Texture2D" uid="uid://bqtf4joc4yixv" path="res://Zombie Apocalypse Tileset/infinite-creations-zombies-8796636.jpg" id="2_17m5t"]
 [ext_resource type="FontFile" uid="uid://b5ohgmfqns7cf" path="res://SyneTactile-Regular.ttf" id="3_17m5t"]
+[ext_resource type="AudioStream" uid="uid://eibpabwj6gf7" path="res://musica/phatphrogstudio-demonic-spirit-voice-sinister-laughter-487002.mp3" id="4_cp3rd"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_iti25"]
 font_size = 60
@@ -17,8 +18,8 @@ process_mode = 3
 script = ExtResource("1_4qk05")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1185046875]
-position = Vector2(577, 323.99994)
-scale = Vector2(0.19183628, 0.1612897)
+position = Vector2(578.74554, 324.78967)
+scale = Vector2(0.19341813, 0.16239484)
 texture = ExtResource("2_17m5t")
 
 [node name="Label" type="Label" parent="." unique_id=262236465]
@@ -80,6 +81,11 @@ offset_left = 1095.0
 offset_top = 613.0
 offset_right = 1135.0
 offset_bottom = 636.0
+
+[node name="intro" type="AudioStreamPlayer2D" parent="." unique_id=2087855542]
+stream = ExtResource("4_cp3rd")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1880739913]
 
 [connection signal="pressed" from="VBoxContainer/Jugar" to="." method="_on_jugar_pressed"]
 [connection signal="pressed" from="VBoxContainer2/Opciones" to="." method="_on_opciones_pressed"]
