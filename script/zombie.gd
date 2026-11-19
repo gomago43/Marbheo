@@ -10,8 +10,17 @@ var vivo : bool
 var entered : bool
 var speed : int = 100
 var direction : Vector2
+var sonido : int
 @export var probobjeto : float = 0.2
+@export var sonidos_zombie: Array[AudioStream] = [] 
+@export_range(0.0, 1.0) var probabilidad_sonido: float = 0.25
+@export var cooldown_sonido: float = 4.0
 
+@onready var audio_player: AudioStreamPlayer2D = $AudioStreamPlayer2D
+@export var intervalo_chequeo: float = 2.0 
+
+var _acumulador_tiempo: float = 0.0
+var _puede_sonar: bool = true
 signal hit_player
 
 
@@ -33,6 +42,7 @@ func _physics_process(_delta):
 	if vivo:
 		$AnimatedSprite2D.animation = "andar"
 		$AnimatedSprite2D.play()
+
 		if entered:
 			direction = (jugador.position - position)
 		direction = direction.normalized()
@@ -44,9 +54,16 @@ func _physics_process(_delta):
 	else:
 		pass
 
+func _process(delta: float) -> void:
+	_acumulador_tiempo += delta
+	if _acumulador_tiempo >= intervalo_chequeo:
+		_acumulador_tiempo = 0.0
+		try_sound()
+
 func muerte():
 	vivo = false
 	$AnimatedSprite2D.stop()
+	$AudioStreamPlayer2D.stop()
 	$AnimatedSprite2D.animation = "muerte"
 	$AnimatedSprite2D.play()
 	$Area2D/CollisionShape2D.set_deferred("disabled", true)
@@ -61,6 +78,21 @@ func drop_item():
 	objeto.objeto_type = randi_range(0,2)
 	main.call_deferred("add_child", objeto)
 	objeto.add_to_group("objetos")
+
+func try_sound() -> void:
+	if not _puede_sonar or sonidos_zombie.is_empty() or !vivo:
+		return
+
+	if randf() <= probabilidad_sonido:
+		var sonido_elegido: AudioStream = sonidos_zombie.pick_random()
+		audio_player.stream = sonido_elegido
+		
+		audio_player.pitch_scale = randf_range(0.9, 1.1)
+		audio_player.play()
+
+		_puede_sonar = false
+		await get_tree().create_timer(cooldown_sonido).timeout
+		_puede_sonar = true
 
 
 func _on_timer_timeout():
