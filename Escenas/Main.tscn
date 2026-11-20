@@ -72,8 +72,6 @@ visible = false
 
 [node name="Zombie" parent="." unique_id=439956856 instance=ExtResource("14_r0yvf")]
 
-[node name="TouchScreenButton" type="TouchScreenButton" parent="." unique_id=525090831]
-
 [node name="Camera2D" type="Camera2D" parent="." unique_id=885196931]
 position = Vector2(574, 325)
 limit_enabled = false
@@ -87,6 +85,7 @@ script = ExtResource("19_1wrdp")
 [node name="Horda" type="Label" parent="." unique_id=1491188864]
 visible = false
 modulate = Color(0, 0, 0, 1)
+z_index = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5

@@ -1,8 +1,5 @@
 extends CharacterBody2D
 
-@onready var move_joystick = $"Joystick/Virtual Joystick"
-@onready var shoot_joystick = $ShootJoystick
-
 @export var casquillo_scene: PackedScene
 
 signal shoot
