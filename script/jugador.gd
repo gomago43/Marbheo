@@ -34,9 +34,11 @@ func start():
 	$GPUParticles2D.emitting = false
 
 func reset():
+	$Cooldown.start()
+	await $Cooldown.timeout
 	can_shoot = true
 	speed = START_SPEED
-	$Cooldown.wait_time = START_SHOOT
+	#$Cooldown.wait_time = START_SHOOT
 
 func _process(_delta):
 	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and can_shoot and not get_tree().paused:

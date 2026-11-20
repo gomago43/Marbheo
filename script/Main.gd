@@ -74,6 +74,7 @@ func resume():
 		$Mira.hide()
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 		get_viewport().set_input_as_handled()
+		get_tree().call_group("balas", "queue_free")
 	else:
 		Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
 		$Mira.show()
