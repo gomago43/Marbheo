@@ -21,5 +21,5 @@ func _process(delta: float) -> void:
 	else:
 		offset = Vector2.ZERO
 
-func apply_shake(amount: float) -> void:
-	shake_intensity = min(shake_intensity + amount, max_shake)
+func apply_shake(amount: float, gain : float) -> void:
+	shake_intensity = min(shake_intensity + (amount * gain), max_shake)

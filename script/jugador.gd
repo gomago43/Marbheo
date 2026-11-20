@@ -52,9 +52,9 @@ func disparar():
 	var cam = get_viewport().get_camera_2d()
 	if cam and cam.has_method("apply_shake"):
 		if speed_shoot :
-			cam.apply_shake(2.0)
+			cam.apply_shake(4.0, 0.5)
 		else:
-			cam.apply_shake(4.0)
+			cam.apply_shake(4.0, 1)
 	
 	if casquillo_scene != null:
 		var casquillo = casquillo_scene.instantiate() as RigidBody2D
