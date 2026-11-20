@@ -13,8 +13,9 @@ var direction : Vector2
 var sonido : int
 @export var probobjeto : float = 0.2
 @export var sonidos_zombie: Array[AudioStream] = [] 
-@export_range(0.0, 1.0) var probabilidad_sonido: float = 0.25
-@export var cooldown_sonido: float = 4.0
+@export_range(0.0, 1.0) var probabilidad_sonido: float = 0.20
+@export var cooldown_min: float = 3.5
+@export var cooldown_max: float = 6
 
 @onready var audio_player: AudioStreamPlayer2D = $AudioStreamPlayer2D
 @export var intervalo_chequeo: float = 2.0 
@@ -91,7 +92,8 @@ func try_sound() -> void:
 		audio_player.play()
 
 		_puede_sonar = false
-		await get_tree().create_timer(cooldown_sonido).timeout
+		var tiempo_espera := randf_range(cooldown_min, cooldown_max)
+		await get_tree().create_timer(tiempo_espera).timeout
 		_puede_sonar = true
 
 
