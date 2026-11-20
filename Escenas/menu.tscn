@@ -18,7 +18,7 @@ process_mode = 3
 script = ExtResource("1_4qk05")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1185046875]
-position = Vector2(578.74554, 324.78967)
+position = Vector2(577.74554, 324.78967)
 scale = Vector2(0.19341813, 0.16239484)
 texture = ExtResource("2_17m5t")
 
@@ -84,6 +84,8 @@ offset_bottom = 636.0
 
 [node name="intro" type="AudioStreamPlayer2D" parent="." unique_id=2087855542]
 stream = ExtResource("4_cp3rd")
+volume_db = 14.223
+bus = &"sonidos"
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1880739913]
 

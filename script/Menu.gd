@@ -1,6 +1,7 @@
 extends Node2D
 
-const JUEGO = preload("res://Escenas/Main.tscn")
+var juego : PackedScene = null
+const TUTORIAL = preload("res://Escenas/tutorial.tscn")
 
 var music_player: AudioStreamPlayer
 
@@ -15,20 +16,23 @@ func _ready():
 
 func _on_jugar_pressed():
 	_start()
+	if juego == null:
+		juego = load("res://Escenas/Main.tscn")
 	#get_tree().change_scene_to_packed(JUEGO)
 
 func _on_opciones_pressed():
 	get_tree().change_scene_to_file("res://Escenas/opciones.tscn")
 
 func _on_tutorial_pressed():
-	get_tree().change_scene_to_file("res://Escenas/tutorial.tscn")
+	#get_tree().change_scene_to_file("res://Escenas/tutorial.tscn")
+	get_tree().change_scene_to_packed(TUTORIAL)
 
 func _on_salir_pressed():
 	get_tree().quit()
 
 func _start():
-	music_player.stop()
 	$intro.play()
+	music_player.stop()
 	$VBoxContainer.hide()
 	$VBoxContainer2.hide()
 	$VBoxContainer3.hide()
@@ -56,4 +60,4 @@ func _start():
 	#await tween_label.finished
 	await tween_fondo.finished
 	
-	get_tree().change_scene_to_packed(JUEGO)
+	get_tree().change_scene_to_packed(juego)

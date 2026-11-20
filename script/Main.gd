@@ -1,6 +1,7 @@
 extends Node
 
 @onready var zombie = get_node("Zombie")
+const MENU = preload("res://Escenas/menu.tscn")
 
 var ordas : int
 var dificultad: float
@@ -26,11 +27,13 @@ func _ready():
 	$Pausa/Button.pressed.connect(resume)
 	$Pausa/Button2.pressed.connect(salir_menu)
 	$Pausa/Button3.pressed.connect(salir_juego)
+
 func salir_juego():
 	get_tree().quit()
 
 func salir_menu():
-	get_tree().change_scene_to_file("res://Escenas/menu.tscn")
+	#get_tree().change_scene_to_file("res://Escenas/menu.tscn")
+	get_tree().change_scene_to_packed(MENU)
 
 func volver_a_jugar():
 	ordas = 1
