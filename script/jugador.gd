@@ -31,13 +31,13 @@ func start():
 	reset()
 	position = screen_size/2
 	$AnimatedSprite2D.stop()
+	$GPUParticles2D.emitting = false
 
 func reset():
 	can_shoot = true
 	speed = START_SPEED
 	$Cooldown.wait_time = START_SHOOT
-	
-	
+
 func _process(_delta):
 	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and can_shoot and not get_tree().paused:
 		disparar()
@@ -76,7 +76,6 @@ func get_input():
 	input_dir = dir
 	velocity = input_dir.normalized() * speed
 
-
 func _physics_process(_delta):
 	get_input()
 	move_and_slide()
@@ -114,10 +113,8 @@ func medicina():
 func _on_cooldown_timeout():
 	can_shoot = true
 
-
 func _on_cocacola_timeout():
 	speed = START_SPEED
-
 
 func _on_pistola_timeout():
 	$Cooldown.wait_time = START_SHOOT
@@ -126,6 +123,7 @@ func _on_pistola_timeout():
 func _on_main_damage() -> void:
 	damaged = true
 	$AnimatedSprite2D.play("daño")
+
 func _on_animated_sprite_2d_animation_finished() -> void:
 	if $AnimatedSprite2D.animation == "daño":
 		damaged = false
