@@ -70,6 +70,7 @@ func muerte():
 	$Area2D/CollisionShape2D.set_deferred("disabled", true)
 	$CollisionShape2D.set_deferred("disabled", true)
 	$muerte.play()
+	#z_index = -1
 	if randf() <= probobjeto:
 		drop_item()
 

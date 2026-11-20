@@ -18,7 +18,7 @@ func _on_jugar_pressed():
 	_start()
 	if juego == null:
 		juego = load("res://Escenas/Main.tscn")
-	#get_tree().change_scene_to_packed(JUEGO)
+	#get_tree().change_scene_to_file("res://Escenas/Main.tscn")
 
 func _on_opciones_pressed():
 	get_tree().change_scene_to_file("res://Escenas/opciones.tscn")
