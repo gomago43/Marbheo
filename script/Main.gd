@@ -42,6 +42,7 @@ func volver_a_jugar():
 	max_enemigos = 10
 	GAME_OVER = false
 	$Spawner/Timer.wait_time = 1.0
+	$gameover.stop()
 	$Jugador.start()
 	get_tree().call_group("objetos", "queue_free")
 	get_tree().paused = false

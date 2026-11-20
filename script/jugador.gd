@@ -30,6 +30,7 @@ func _on_joystick_moved(dir):
 func start():
 	reset()
 	position = screen_size/2
+	$AnimatedSprite2D.stop()
 
 func reset():
 	can_shoot = true
@@ -125,7 +126,6 @@ func _on_pistola_timeout():
 func _on_main_damage() -> void:
 	damaged = true
 	$AnimatedSprite2D.play("daño")
-	
 func _on_animated_sprite_2d_animation_finished() -> void:
 	if $AnimatedSprite2D.animation == "daño":
 		damaged = false
