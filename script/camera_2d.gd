@@ -2,9 +2,10 @@ extends Camera2D
 
 @export var target: Node2D 
 @export var smooth_speed: float = 5.0 
+@export var max_shake: float = 6.0
 
 var shake_intensity: float = 0.0
-var shake_decay: float = 15.0
+var shake_decay: float = 10.0
 
 func _process(delta: float) -> void:
 	if target:
@@ -21,4 +22,4 @@ func _process(delta: float) -> void:
 		offset = Vector2.ZERO
 
 func apply_shake(amount: float) -> void:
-	shake_intensity = amount
+	shake_intensity = min(shake_intensity + amount, max_shake)

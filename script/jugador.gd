@@ -14,6 +14,7 @@ const PISTOLA_SHOOT : float = 0.15
 
 var speed : int
 var can_shoot : bool
+var speed_shoot : bool = false
 var screen_size : Vector2
 var input_dir = Vector2.ZERO
 var shoot_direction = Vector2.ZERO
@@ -50,7 +51,10 @@ func disparar():
 	
 	var cam = get_viewport().get_camera_2d()
 	if cam and cam.has_method("apply_shake"):
-		cam.apply_shake(5.0)
+		if speed_shoot :
+			cam.apply_shake(2.0)
+		else:
+			cam.apply_shake(4.0)
 	
 	if casquillo_scene != null:
 		var casquillo = casquillo_scene.instantiate() as RigidBody2D
@@ -100,6 +104,7 @@ func cocacola():
 func pistola():
 	$objeto.play()
 	$Pistola.start()
+	speed_shoot = true
 	$Cooldown.wait_time = PISTOLA_SHOOT
 
 func medicina():
@@ -115,6 +120,7 @@ func _on_cocacola_timeout():
 
 func _on_pistola_timeout():
 	$Cooldown.wait_time = START_SHOOT
+	speed_shoot = false
 
 func _on_main_damage() -> void:
 	damaged = true
