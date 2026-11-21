@@ -40,6 +40,7 @@ func _start():
 	$VBoxContainer4.hide()
 	$maxima.hide()
 	$Label.hide()
+	Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
 
 	#$Label.pivot_offset = $Label.size / 2
 	
