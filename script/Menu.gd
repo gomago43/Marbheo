@@ -15,9 +15,10 @@ func _ready():
 			Musica.music_player.play()
 
 func _on_jugar_pressed():
-	_start()
+	await _start()
 	if juego == null:
 		juego = load("res://Escenas/Main.tscn")
+	get_tree().change_scene_to_packed(juego)
 	#get_tree().change_scene_to_file("res://Escenas/Main.tscn")
 
 func _on_opciones_pressed():
@@ -38,7 +39,6 @@ func _start():
 	$VBoxContainer3.hide()
 	$VBoxContainer4.hide()
 	$maxima.hide()
-	
 	$Label.hide()
 
 	#$Label.pivot_offset = $Label.size / 2
@@ -60,4 +60,4 @@ func _start():
 	#await tween_label.finished
 	await tween_fondo.finished
 	
-	get_tree().change_scene_to_packed(juego)
+	
