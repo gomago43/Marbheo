@@ -98,11 +98,13 @@ func _physics_process(_delta):
 func cocacola():
 	$objeto.play()
 	$Cocacola.start()
+	$cocacolaBar.barra()
 	speed = COCACOLA_SPEED
 
 func pistola():
 	$objeto.play()
 	$Pistola.start()
+	$pistolaBar.barra()
 	speed_shoot = true
 	$Cooldown.wait_time = PISTOLA_SHOOT
 

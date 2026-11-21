@@ -13,6 +13,9 @@
 [ext_resource type="Texture2D" uid="uid://dg7d5xvpilkc3" path="res://Zombie Apocalypse Tileset/Organized separated sprites/Damaged Player Animation Frames/Zombie-Tileset---_0487_Capa-488.png" id="11_srao3"]
 [ext_resource type="Texture2D" uid="uid://b0rssinmyif1g" path="res://Zombie Apocalypse Tileset/Organized separated sprites/Damaged Player Animation Frames/Zombie-Tileset---_0485_Capa-486.png" id="12_40r6v"]
 [ext_resource type="AudioStream" uid="uid://bx57q5lmyuyau" path="res://musica/SONIDO_AL_COGER_COCACOLA.mp3" id="12_e6bo6"]
+[ext_resource type="Texture2D" uid="uid://b5od4bmy86pyy" path="res://Vector/Red/bar_round_gloss_large.svg" id="14_lkbdx"]
+[ext_resource type="Script" uid="uid://s073yjvpsgjd" path="res://Escenas/barra.gd" id="15_tg0k3"]
+[ext_resource type="Texture2D" uid="uid://cfcaj35b33dve" path="res://Vector/Green/bar_round_gloss_large.svg" id="16_srao3"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_kbwum"]
 animations = [{
@@ -85,6 +88,12 @@ initial_velocity_min = 10.0
 initial_velocity_max = 30.0
 gravity = Vector3(0, -10, 0)
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fnc7j"]
+texture = ExtResource("14_lkbdx")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_srao3"]
+texture = ExtResource("16_srao3")
+
 [node name="Jugador" type="CharacterBody2D" unique_id=1909952634]
 z_index = 2
 position = Vector2(490, 392)
@@ -122,6 +131,28 @@ position = Vector2(0, 16)
 emitting = false
 lifetime = 0.34
 process_material = SubResource("ParticleProcessMaterial_vrk45")
+
+[node name="pistolaBar" type="ProgressBar" parent="." unique_id=740862977]
+visible = false
+offset_left = -23.0
+offset_top = -26.0
+offset_right = 23.0
+offset_bottom = -20.0
+theme_override_styles/fill = SubResource("StyleBoxTexture_fnc7j")
+value = 100.0
+show_percentage = false
+script = ExtResource("15_tg0k3")
+
+[node name="cocacolaBar" type="ProgressBar" parent="." unique_id=1330172958]
+visible = false
+offset_left = -23.0
+offset_top = -34.0
+offset_right = 23.0
+offset_bottom = -28.0
+theme_override_styles/fill = SubResource("StyleBoxTexture_srao3")
+value = 100.0
+show_percentage = false
+script = ExtResource("15_tg0k3")
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="timeout" from="Cooldown" to="." method="_on_cooldown_timeout"]
