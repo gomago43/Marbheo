@@ -86,7 +86,7 @@ initial_velocity_max = 30.0
 gravity = Vector3(0, -10, 0)
 
 [node name="Jugador" type="CharacterBody2D" unique_id=1909952634]
-z_index = 1
+z_index = 2
 position = Vector2(490, 392)
 collision_layer = 2
 collision_mask = 17

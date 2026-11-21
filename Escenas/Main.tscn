@@ -78,6 +78,7 @@ limit_enabled = false
 script = ExtResource("18_fhaj2")
 
 [node name="Mira" type="Sprite2D" parent="." unique_id=932985956]
+z_index = 2
 scale = Vector2(0.08, 0.08)
 texture = ExtResource("19_dj7fj")
 script = ExtResource("19_1wrdp")

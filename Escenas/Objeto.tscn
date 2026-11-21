@@ -12,6 +12,7 @@ collision_mask = 2
 script = ExtResource("1_ouceq")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1226246763]
+z_index = -1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=413836242]
 shape = SubResource("RectangleShape2D_bp8mx")
