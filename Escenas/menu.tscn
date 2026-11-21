@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://c48nd46qwb5wu" path="res://script/Menu.gd" id="1_4qk05"]
 [ext_resource type="Texture2D" uid="uid://bqtf4joc4yixv" path="res://Zombie Apocalypse Tileset/infinite-creations-zombies-8796636.jpg" id="2_17m5t"]
 [ext_resource type="FontFile" uid="uid://b5ohgmfqns7cf" path="res://SyneTactile-Regular.ttf" id="3_17m5t"]
-[ext_resource type="AudioStream" uid="uid://eibpabwj6gf7" path="res://musica/phatphrogstudio-demonic-spirit-voice-sinister-laughter-487002.mp3" id="4_cp3rd"]
+[ext_resource type="AudioStream" uid="uid://eibpabwj6gf7" path="res://musica/sinister-laughter.mp3" id="4_cp3rd"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_iti25"]
 font_size = 60
@@ -84,7 +84,8 @@ offset_bottom = 636.0
 
 [node name="intro" type="AudioStreamPlayer2D" parent="." unique_id=2087855542]
 stream = ExtResource("4_cp3rd")
-volume_db = 14.223
+volume_db = 24.0
+attenuation = 3.1383364
 bus = &"sonidos"
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1880739913]
