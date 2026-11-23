@@ -34,10 +34,10 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=702440634]
-offset_left = 49.0
-offset_top = 455.0
-offset_right = 204.0
-offset_bottom = 486.0
+offset_left = 43.0
+offset_top = 482.0
+offset_right = 198.0
+offset_bottom = 513.0
 
 [node name="Jugar" type="Button" parent="VBoxContainer" unique_id=633272904]
 custom_minimum_size = Vector2(0, 31)
@@ -47,30 +47,30 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_npqma")
 text = "dial1"
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="." unique_id=1993093778]
-offset_left = 49.0
-offset_top = 496.0
-offset_right = 204.0
-offset_bottom = 527.0
+offset_left = 43.0
+offset_top = 523.0
+offset_right = 198.0
+offset_bottom = 554.0
 
 [node name="Opciones" type="Button" parent="VBoxContainer2" unique_id=372087609]
 layout_mode = 2
 text = "dial2"
 
 [node name="VBoxContainer3" type="VBoxContainer" parent="." unique_id=1526610925]
-offset_left = 49.0
-offset_top = 532.0
-offset_right = 204.0
-offset_bottom = 572.0
+offset_left = 43.0
+offset_top = 559.0
+offset_right = 198.0
+offset_bottom = 599.0
 
 [node name="Tutorial" type="Button" parent="VBoxContainer3" unique_id=1202939408]
 layout_mode = 2
 text = "dial3"
 
 [node name="VBoxContainer4" type="VBoxContainer" parent="." unique_id=1797082639]
-offset_left = 49.0
-offset_top = 566.0
-offset_right = 204.0
-offset_bottom = 597.0
+offset_left = 43.0
+offset_top = 593.0
+offset_right = 198.0
+offset_bottom = 624.0
 
 [node name="Salir" type="Button" parent="VBoxContainer4" unique_id=26055978]
 layout_mode = 2

@@ -11,13 +11,13 @@ var entered : bool
 var speed : int = 100
 var direction : Vector2
 var sonido : int
-@export var probobjeto : float = 0.2
+@export var probobjeto : float = 0.2 
 @export var sonidos_zombie: Array[AudioStream] = [] 
 @export_range(0.0, 1.0) var probabilidad_sonido: float = 0.20
 @export var cooldown_min: float = 3.5
 @export var cooldown_max: float = 6
 
-@onready var audio_player: AudioStreamPlayer2D = $AudioStreamPlayer2D
+@onready var audio_player: AudioStreamPlayer2D = $SonidoZombie
 @export var intervalo_chequeo: float = 2.0 
 
 var _acumulador_tiempo: float = 0.0
@@ -64,7 +64,7 @@ func _process(delta: float) -> void:
 func muerte():
 	vivo = false
 	$AnimatedSprite2D.stop()
-	$AudioStreamPlayer2D.stop()
+	$SonidoZombie.stop()
 	$AnimatedSprite2D.animation = "muerte"
 	$AnimatedSprite2D.play()
 	$Area2D/CollisionShape2D.set_deferred("disabled", true)

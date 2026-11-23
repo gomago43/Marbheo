@@ -14,7 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://b0rssinmyif1g" path="res://Zombie Apocalypse Tileset/Organized separated sprites/Damaged Player Animation Frames/Zombie-Tileset---_0485_Capa-486.png" id="12_40r6v"]
 [ext_resource type="AudioStream" uid="uid://bx57q5lmyuyau" path="res://musica/SONIDO_AL_COGER_COCACOLA.mp3" id="12_e6bo6"]
 [ext_resource type="Texture2D" uid="uid://b5od4bmy86pyy" path="res://Vector/Red/bar_round_gloss_large.svg" id="14_lkbdx"]
-[ext_resource type="Script" uid="uid://s073yjvpsgjd" path="res://Escenas/barra.gd" id="15_tg0k3"]
+[ext_resource type="Script" uid="uid://s073yjvpsgjd" path="res://script/barra.gd" id="15_tg0k3"]
 [ext_resource type="Texture2D" uid="uid://cfcaj35b33dve" path="res://Vector/Green/bar_round_gloss_large.svg" id="16_srao3"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_kbwum"]
@@ -104,7 +104,7 @@ script = ExtResource("1_u0ae4")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2119227019]
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_kbwum")
-animation = &"daño"
+animation = &"andar2"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2077704777]
 position = Vector2(-0.5, 0)

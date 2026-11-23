@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://s83ig6rwigiv"]
 
 [ext_resource type="Script" uid="uid://7m0l65l8uvin" path="res://script/tutorial.gd" id="1_0ongv"]
-[ext_resource type="Texture2D" uid="uid://dm4m8ham6dfg6" path="res://iloveimg-compressed/prince_trio-zombie-4127575.jpg" id="2_unt0s"]
+[ext_resource type="Texture2D" uid="uid://dm4m8ham6dfg6" path="res://Zombie Apocalypse Tileset/prince_trio-zombie-4127575.jpg" id="2_unt0s"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_5gvy4"]
 font_size = 30
@@ -15,8 +15,8 @@ font_size = 23
 script = ExtResource("1_0ongv")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1475296573]
-position = Vector2(576.7875, 325.5)
-scale = Vector2(0.11131351, 0.108166665)
+position = Vector2(575.78754, 324.49997)
+scale = Vector2(0.11150702, 0.108166665)
 texture = ExtResource("2_unt0s")
 
 [node name="Arriba" type="Label" parent="." unique_id=1516124721]
