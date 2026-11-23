@@ -14,28 +14,30 @@ var can_shoot : bool
 var speed_shoot : bool = false
 var screen_size : Vector2
 var input_dir = Vector2.ZERO
-var shoot_direction = Vector2.ZERO
+#var shoot_direction = Vector2.ZERO
 var damaged : bool = false
 
 func _ready():
 	screen_size = get_viewport_rect().size
 	reset()
 
-func _on_joystick_moved(dir):
-	input_dir = dir
-
 func start():
+	stop_upgrades()
 	reset()
 	position = screen_size/2
+	damaged = false
 	$AnimatedSprite2D.stop()
 	$GPUParticles2D.emitting = false
 
 func reset():
+	if not $Cocacola.is_stopped():
+		speed = COCACOLA_SPEED
+	else:
+		speed = START_SPEED
 	$Cooldown.start()
 	await $Cooldown.timeout
 	can_shoot = true
-	speed = START_SPEED
-	#$Cooldown.wait_time = START_SHOOT
+
 
 func _process(_delta):
 	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and can_shoot and not get_tree().paused:
@@ -128,3 +130,11 @@ func _on_main_damage() -> void:
 func _on_animated_sprite_2d_animation_finished() -> void:
 	if $AnimatedSprite2D.animation == "daño":
 		damaged = false
+
+func stop_upgrades():
+	$Cooldown.stop()
+	$Cocacola.stop()
+	$pistolaBar._kill()
+	$cocacolaBar._kill()
+	$Cooldown.wait_time = START_SHOOT
+	speed_shoot = false

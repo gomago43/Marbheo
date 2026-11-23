@@ -14,3 +14,8 @@ func barra():
 	await tween.finished
 	
 	hide()
+
+func _kill():
+	if tween and tween.is_valid():
+		tween.kill()
+	hide()
